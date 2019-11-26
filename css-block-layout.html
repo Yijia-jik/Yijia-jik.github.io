@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by Yijia-jik (http://jsbin.com/hofaqer/7/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta name="description" content="css-block-layout">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style id="jsbin-css">
+
+
+  </style>
+</head>
+
+<body>
+  <style>
+    .b {
+      background-color: black;
+      color: white;
+      width: 600px;
+    }
+
+    .a {
+      text-align: justify;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  </style>
+  <div class=b>hello world 请调整浏览器窗口大小查看效果</div>
+
+  <style>
+    html {
+      box-sizing: content-box;
+      width: 600px
+    }
+  </style>
+
+  <div class=a>页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+    页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+    页面主体 宽度600px</div>
+
+  <style>
+    span {
+      background-color: pink;
+      display: block;
+      border: 3px solid;
+      width: 174px;
+      height: 34px;
+      text-align: center;
+      line-height: 34px;
+    }
+
+    span:hover {
+      background-color: red;
+    }
+
+    span:first-of-type {
+      margin-bottom: 0;
+    }
+
+    span:nth-of-type(n+2):nth-of-type(-n+4) {
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+
+    span:nth-of-type(5) {
+      margin-top: -205px;
+      margin-left: 210px;
+    }
+
+    span:nth-of-type(n+6):nth-of-type(-n+8) {
+      margin-top: 15px;
+      margin-left: 210px;
+    }
+
+    span:nth-of-type(9) {
+      margin-top: -205px;
+      margin-left: 420px;
+    }
+
+    span:nth-of-type(n+10):nth-of-type(-n+12) {
+      margin-top: 15px;
+      margin-left: 420px;
+    }
+  </style>
+
+  <span>宽180高40(包含边框)</span>
+  <span>水平间隙30px</span>
+  <span>垂直间隙15px</span>
+  <span>边框宽度3px</span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+
+  <style>
+    p {
+      border: 1px dotted;
+      border-top: transparent;
+      border-left: transparent;
+      border-right: transparent;
+    }
+
+    p:nth-of-type(n+2):nth-of-type(-n+4) {
+      margin-top: 0px;
+      margin-bottom: 0;
+    }
+
+    p:first-of-type {
+      margin-top: 16px;
+      margin-bottom: 0;
+    }
+
+    p:last-of-type {
+      border-bottom: transparent;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+  </style>
+
+  <p>link</p>
+  <p>link</p>
+  <p>link</p>
+  <p>link</p>
+  <p>link</p>
+
+  <style>
+    .c {
+      background-color: rgb(238, 138, 238);
+      text-align: center;
+      white-space: pre;
+    }
+  </style>
+
+  <div class=c>©版权所有
+    本页所有布局均使用块元素</div>
+</body>
+
+</html>
