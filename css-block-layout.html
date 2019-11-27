@@ -3,7 +3,7 @@
 Created using JS Bin
 http://jsbin.com
 
-Copyright (c) 2019 by Yijia-jik (http://jsbin.com/hofaqer/10/edit)
+Copyright (c) 2019 by Yijia-jik (http://jsbin.com/hofaqer/13/edit)
 
 Released under the MIT license: http://jsbin.mit-license.org
 -->
@@ -23,32 +23,97 @@ Released under the MIT license: http://jsbin.mit-license.org
   <meta name="description" content="css-block-layout">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+  <!-- <meta http-equiv="refresh" content=""> -->
   <title>JS Bin</title>
-  <style id="jsbin-css">
+<style id="jsbin-css">
+/* BFC
+他不会与自己的子元素margin重叠
+他自身形成了一个布局单元（布局此元素内部时不用考虑其外部，完全隔离，可把此元素理解为一个iframe）
+触发以后ul会包住margin-box，而不是border
+里面的元素不会跑到外面去 */
+
+ul.links{
+    overflow:hidden;
+}
+
+ul.links li{border-bottom: 1px dotted;
+  }
 
 
-  </style>
+
+
+
+
+
+
+
+
+</style>
 </head>
 
 <body>
-  <style>
-    * {
-      text-align: center;
-    }
+  <nav>hello world 请调整浏览器窗口大小查看效果</nav>
+   <style>
+   /*    当宽度为auto，结果在这个之内用结果
+        不能和 width 合用 */
+     nav {background-color:black;
+          color: white;
+        min-width: 600px;
+       padding-left: calc(50% - 300px)
+}
+/* nav {
+  background-color: black;
+  color: white;
+  padding-left: calc((100% - 600px)/2);
+  min-width: 600px;
+} */
 
-    .e {
-      background-color: black;
-    }
 
+  
+  </style>
+
+  <!--  <div class=background><div class=b>hello world 请调整浏览器窗口大小查看效果</div></div>
+    <style>
+   .background {background-color: black;}
+    
     .b {
-
       color: white;
-      width: 600px;
+      width:600px;
       margin-left: auto;
       margin-right: auto;
       text-align: left;
     }
+     </style>
+   -->
+  
+  <style>
+  header {
+  background-color: black;
+  color:white;
+}
+header div {
+  width: 600px;
+  margin: auto;
+}
+  .wrap {
+ width:600px;
+  margin: auto;
+} 
+  
+  </style>
+ <header>
+      <div>
+        hello world 请调整浏览器窗口大小查看效果
+      </div>
+    </header>
+  <div class="wrap">
+    <p>页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
 
+</p>
+    
+ 
+    
+<!-- <style>
     .a {
       text-align: justify;
       margin-top: 16px;
@@ -56,23 +121,15 @@ Released under the MIT license: http://jsbin.mit-license.org
       width: 600px;
       margin-left: auto;
       margin-right: auto;
-    }
-  </style>
-  <div class=e>
-    <div class=b>hello world 请调整浏览器窗口大小查看效果</div>
-  </div>
-
-  <style>
-    html
-  </style>
-
+  }</style>
   <div class=a>页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
     页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
-    页面主体 宽度600px</div>
+    页面主体 宽度600px</div> -->
 
-  <style>
-    span {
-      ;
+ <!--  cards 1 <style>
+   
+    
+    span {;
       background-color: pink;
       display: block;
       border: 3px solid;
@@ -81,134 +138,282 @@ Released under the MIT license: http://jsbin.mit-license.org
       text-align: center;
       line-height: 34px;
     }
-
-    main {
-
-      width: 600px;
+      main {
+        
+        width:600px;
       margin-left: auto;
-      margin-right: auto;
-    }
-
+      margin-right: auto;}
+    
     span:hover {
       background-color: red;
     }
-
+  
     span:first-of-type {
       margin-bottom: 0;
     }
-
+  
     span:nth-of-type(n+2):nth-of-type(-n+4) {
       margin-top: 15px;
       margin-bottom: 0;
     }
-
+  
     span:nth-of-type(5) {
       margin-top: -205px;
       margin-left: 210px;
     }
-
+  
     span:nth-of-type(n+6):nth-of-type(-n+8) {
       margin-top: 15px;
       margin-left: 210px;
     }
-
+  
     span:nth-of-type(9) {
       margin-top: -205px;
       margin-left: 420px;
     }
-
+  
     span:nth-of-type(n+10):nth-of-type(-n+12) {
       margin-top: 15px;
       margin-left: 420px;
     }
   </style>
-
+  
   <main>
-    <span>宽180高40(包含边框)</span>
-    <span>水平间隙30px</span>
-    <span>垂直间隙15px</span>
-    <span>边框宽度3px</span>
-    <span>产品
-    </span>
-    <span>产品
-    </span>
-    <span>产品
-    </span>
-    <span>产品
-    </span>
-    <span>产品
-    </span>
-    <span>产品
-    </span>
-    <span>产品
-    </span>
-    <span>产品
-    </span>
-  </main>
+  <span>宽180高40(包含边框)</span>
+  <span>水平间隙30px</span>
+  <span>垂直间隙15px</span>
+  <span>边框宽度3px</span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  <span>产品
+  </span>
+  </main> -->
 
-  <!-- <style>
+<!-- cards 2 <style>
+   main {width:600px;
+   margin-right: auto;
+   margin-left:auto;
+   }
+   p{
+      background-color: pink;
+      border: 3px solid;
+      width: 174px;
+      height: 34px;
+      text-align: center;
+      line-height: 34px;
+     margin-bottom: -40px
+     
+    }
+   
+   p:nth-child(3n+2){margin-left: 210px; margin-top:-15px; margin-bottom:15px}
+   p:nth-child(3n+3){margin-left: 420px; margin-top:-55px; margin-bottom:40px
+  
+
+  </style>
+  
+  <main><p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p></main>
+   -->
+  
+  
+  <!-- links 1 <style>
     p {
       border: 1px dotted;
       border-top: transparent;
       border-left: transparent;
       border-right: transparent;
     }
-
+  
     p:nth-of-type(n+2):nth-of-type(-n+4) {
       margin-top: 0px;
       margin-bottom: 0;
     }
-
+  
     p:first-of-type {
       margin-top: 8px;
       margin-bottom: 0;
     }
-
+  
     p:last-of-type {
       border-bottom: transparent;
       margin-top: 0;
       margin-bottom: 8px;
     }
   </style>
-
+  
   <p>link</p>
   <p>link</p>
   <p>link</p>
   <p>link</p>
   <p>link</p> -->
-
-  <style>
-    ul {
-      padding: 0;
-    }
-
-    li {
-      border: 1px dotted;
-      border-top: transparent;
-      border-left: transparent;
-      border-right: transparent;
+  
+  <!-- links 2  <style>
+    ul.links {padding:0;}
+    ul.links li {
+      border:1px dotted;
+      border-top:transparent;
+      border-left:transparent;
+      border-right:transparent;
       list-style: none;
-      text-align: left;
-      width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+    text-align: left;
+    width:600px;
+    margin-left: auto;
+    margin-right: auto;
     }
-  </style>
-  <ul>
-    <li>link</li>
-    <li>link</li>
-    <li>link</li>
-    <li>link</li>
-    <li>link</li>
+      
+      </style>
+      
+    -->
+  
+  <ul class=cards>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li>产品</li>
   </ul>
+   </div>
+  
   <style>
-    .c {
+  ul {
+  margin:0;
+  padding:0;
+  list-style:none;
+    overflow:hidden;
+ /*  让点不见 */
+}
+
+.cards li {
+  box-sizing:border-box;
+  width:180px;
+  height:40px;
+  border:3px solid;
+  margin-bottom:15px;
+  background-color:pink;
+  text-align: center;
+  line-height:34px;
+  /* 目前没有办法不设定line-height 造成垂直居中的效果
+     */}
+
+.cards li:nth-child(n+5){
+  margin-left: 210px;t
+}
+
+.cards li:nth-child(4n+5){
+  margin-top:-220px;
+}
+.cards li:nth-child(n+9){
+  margin-left: 420px;
+}  
+ 
+  </style>
+  <br>
+ <div class=cards2>
+     <span>产品</span>
+     <span>产品</span>
+     <span>产品</span>
+   
+     <span>产品</span>
+     <span>产品</span>
+     <span>产品</span>
+ 
+     <span>产品</span>
+     <span>产品</span>
+     <span>产品</span>
+
+     <span>产品</span>
+     <span>产品</span>
+   <span>产品</span>
+     </div>
+  
+  
+     <style>
+       
+.cards2 {
+  font-size:0;
+  width:600px;
+  margin:auto;
+  text-align:center;
+ }
+
+span:hover {background-color:red;}
+span {
+  font-size:16px;
+  box-sizing: border-box;
+  display:inline-block;
+  background-color:pink;
+  border:3px solid;
+  width:180px;
+  height:40px;
+  margin-bottom:15px;
+  line-height:34px;
+}
+span:nth-child(3n-1),span:nth-child(3n){margin-left:30px;
+  }
+</style>
+
+  
+  
+  
+   <ul class=links >
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+      <li>link</li>
+    </ul>
+  <style>
+    ul.links {overflow:hidden}   
+    
+ul.links li{border-bottom: 1px dotted;
+  }
+  
+  
+  
+  
+  
+  </style>
+  
+  
+  <style>
+   /*  可以用footer元素 */
+    .footer {
+      text-align:center;
       background-color: rgb(238, 138, 238);
       white-space: pre;
     }
   </style>
 
-  <div class=c>©版权所有
+  <div class=footer>©版权所有
     本页所有布局均使用块元素</div>
 </body>
 
