@@ -1,0 +1,38 @@
+(function () {
+  let timeout;
+
+  function init(attempts) {
+    clearTimeout(timeout)
+    attempts = attempts || 1
+    if (attempts > 3) return
+    if (typeof CodeFundAd === 'undefined') {
+      timeout = setTimeout(function () { init(attempts + 1) }, 350)
+      return
+    }
+    new CodeFundAd({"selector":"#codefund_ad","template":"bottom-bar","theme":"light","fallback":false,"urls":{"impression":"https://codefund.io/display/3eb251a4-fcaf-498e-9ef2-38f1430471ac.gif","campaign":"https://codefund.io/impressions/3eb251a4-fcaf-498e-9ef2-38f1430471ac/click?campaign_id=654\u0026creative_id=309\u0026property_id=23\u0026template=bottom-bar\u0026theme=light","poweredBy":"https://codefund.io/invite/w_7Siqe2mMo","adblock":"https://cdn2.codefund.app/assets/px.js","uplift":"https://codefund.io/impressions/3eb251a4-fcaf-498e-9ef2-38f1430471ac/uplift?advertiser_id=613"},"creative":{"name":"MongoDB Atlas v3","headline":"MongoDB Atlas","body":"is the most reliable cloud database service available. Try now!","cta":"Learn more","imageUrls":{"icon":"https://cdn2.codefund.app/yVLDMBbDFzLsWwRDHdkrwrNN","small":"https://cdn2.codefund.app/Lmzo93bLUZZ7H8LNZoE4QmEH","large":"https://cdn2.codefund.app/nfhKwmD1YnLwGwFiKheijMHo","wide":"https://cdn2.codefund.app/tGRsSAsws8Y1TX2aActNtTPu"}}})
+  }
+
+  const codefundStylesheetId = 'codefund-style'
+  const codefundScriptId = 'codefund-script'
+
+  if (!document.getElementById(codefundStylesheetId)) {
+    const stylesheet = document.createElement('link')
+    stylesheet.setAttribute('id', codefundStylesheetId)
+    stylesheet.setAttribute('rel', 'stylesheet')
+    stylesheet.setAttribute('media', 'all')
+    stylesheet.setAttribute('href', 'https://codefund.io/packs/css/code_fund_ad-b6b3de79.css')
+    stylesheet.addEventListener('load', init)
+    document.head.appendChild(stylesheet)
+  }
+
+  if (document.getElementById(codefundScriptId)) {
+    init()
+  } else {
+    const script = document.createElement('script')
+    script.setAttribute('id', codefundScriptId)
+    script.setAttribute('type', 'text/javascript')
+    script.setAttribute('src', 'https://codefund.io/packs/js/code_fund_ad-9e57ce5be5de715cc250.js')
+    script.addEventListener('load', init)
+    document.head.appendChild(script)
+  }
+})()
