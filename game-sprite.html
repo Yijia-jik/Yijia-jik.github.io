@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by Yijia-jik (http://jsbin.com/mojuxat/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta name="description" content="使用css缓动实现游戏sprite动画">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style id="jsbin-css">
+    div {
+      width: 1300px;
+      height: 830px;
+      background-image: url(https://previews.123rf.com/images/mikailain/mikailain1611/mikailain161100253/67809952-courageous-boy-game-sprites-suitable-for-side-scrolling-action-adventure-and-endless-runner-game-.jpg);
+      background-repeat: no-repeat;
+    }
+
+    /* {
+  background-position:-33px -228px;
+  width:92px;
+  height:146px;
+  background-clip:content-box;
+  } */
+
+    div {
+      transition: all 3s;
+      transition-timing-function: steps(11);
+      background-position: -32px -38px;
+      width: 92px;
+      height: 146px;
+      background-clip: content-box;
+    }
+
+    div:hover {
+      background-position: -1171px -38px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id=a></div>
+
+
+
+
+</body>
+
+</html>
