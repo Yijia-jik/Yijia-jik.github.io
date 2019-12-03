@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by Yijia-jik (http://jsbin.com/camuziy/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta name="description" content="实现Bootstrap table的组合类名样式">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style id="jsbin-css">
+    html,
+    body {
+      position: relative;
+      margin: 0;
+      width: 100%;
+    }
+
+    table {
+      width: 50%;
+      position: absolute;
+      display: table;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    td {
+      padding: 5%;
+    }
+
+    tr {
+      border-bottom: 1px solid #dee2e6;
+    }
+
+
+    .table-small>td {
+      padding: 2.5%
+    }
+
+    .thead-dark>thead {
+      color: white;
+      background-color: #343a40;
+    }
+
+    .table-striped>tbody>tr:nth-child(odd) {
+      background-color: rgb(242, 242, 242);
+    }
+
+    .table-bordered,
+    col {
+      border: 1px solid #dee2e6
+    }
+
+    .table-bordered>thead {
+      border-bottom: 2px solid #dee2e6
+    }
+
+    .table-borderless {
+      border: none
+    }
+
+    .table-hoverable>tbody>tr:hover {
+      background-color: rgb(242, 242, 242);
+    }
+
+    </html>
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th># </th>
+        <th>Lorem.</th>
+        <th>Et!</th>
+        <th>Quo!</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>1</th>
+        <td>Lorem.</td>
+        <td>Vitae!</td>
+        <td>Veniam.</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>Lorem.</td>
+        <td>Necessitatibus.</td>
+        <td>Veniam?</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>Lorem.</td>
+        <td>Praesentium.</td>
+        <td>Obcaecati!</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>
