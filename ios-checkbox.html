@@ -3,7 +3,7 @@
 Created using JS Bin
 http://jsbin.com
 
-Copyright (c) 2019 by Yijia-jik (http://jsbin.com/qamavul/1/edit)
+Copyright (c) 2019 by Yijia-jik (http://jsbin.com/luzipig/1/edit)
 
 Released under the MIT license: http://jsbin.mit-license.org
 -->
@@ -11,58 +11,124 @@ Released under the MIT license: http://jsbin.mit-license.org
 <html>
 
 <head>
+  <meta name="description" content="radio-button">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
-  <style>
-    #container {
-      font-size: 0;
-      position: relative;
-      background-color: rgb(162, 231, 172);
-      border: 5px solid #A1D7A8;
-      width: 200px;
-      height: 100px;
-      border-radius: 50px;
-    }
-
-    #circle {
-      display: inline-block;
-      vertical-align: top;
-      position: absolute;
-      background-color: white;
-      box-shadow: 4px 4px 20px #C2C2C2;
-      width: 100px;
-      height: 100px;
-      border-radius: 50px;
-      left: auto;
-      transition: width 5s;
-      transition-timing-function: ease;
-    }
-
-    #circle:active {
-      left: 100px;
-    }
-
-    #container:active {
-      background-color: white;
-    }
-
+  <style id="jsbin-css">
     input {
       display: none;
     }
 
-    input:checked+label::before {
-      content: attr(container)
+    body {
+      position: fixed;
+      display: block;
+      margin: 25%;
+      width: 500px;
+      height: 500px;
+    }
+
+    #radio+label {
+      position: relative;
+      margin-right: 50px;
+      display: inline-block;
+      background-color: transparent;
+      border: 9px solid black;
+      box-sizing: border-box;
+      border-radius: 100px;
+      width: 100px;
+      height: 100px;
+      transition: .8s;
+      transition-timing-function: ease;
+      /* transition-property:border-color, box-shadow, background-color;
+  transition-delay:0s, -.6s, .5s */
+      ;
+    }
+
+    #radio:checked+label {
+      border-color: #03BD5E;
+    }
+
+
+    #radio+label:before {
+      content: "";
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      position: absolute;
+      display: inline-block;
+      background-color: transparent;
+      box-sizing: border-box;
+      border-radius: 26px;
+      width: 26px;
+      height: 26px;
+      transition: .7s;
+      transition-timing-function: ease;
+    }
+
+    #radio:checked+label:before {
+      border: 26px solid #03BD5E;
+    }
+
+    #radio+label:active {
+      box-shadow: 0 0 0 70px #A2DDBD;
+      background-color: #A2DDBD;
+      transition-delay: -0.1s;
+      transition-timing-function: ease
+    }
+
+    #radio:checked+label:active {
+      box-shadow: 0 0 0 88px #A2DDBD;
+      background-color: #A2DDBD;
+    }
+
+
+
+    #ios+label {
+      display: inline-block;
+      position: relative;
+      background-color: transparent;
+      box-sizing: border-box;
+      box-shadow: 0 0 5px 1px grey inset;
+      width: 200px;
+      height: 102px;
+      border-radius: 102px;
+      transition: .3s;
+    }
+
+    #ios:checked+label {
+      border: 51px solid #A1D7A8;
+    }
+
+    #ios+label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      background-color: white;
+      border-radius: 80px;
+      box-shadow: 4px 4px 20px #C2C2C2;
+      top: 11px;
+      left: 10px;
+      width: 80px;
+      height: 80px;
+      transition: 2s;
+    }
+
+    #ios:checked+label::before {
+      left: 61px;
+      top: -41px;
     }
   </style>
 </head>
 
 <body>
+  <input type="checkbox" id=radio>
+  <label for="radio"></label>
+
   <input type="checkbox" name="" id="up">
   <label for="up">
-    <div id=container>
-      <p id=circle></p>
-    </div>
   </label>
 </body>
 
