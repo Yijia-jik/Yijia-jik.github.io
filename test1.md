@@ -9,20 +9,21 @@
 
 01. 列出至少 7 个常用 Linux 命令及其基本使用方法
 
-git add ...
+git add
 git commit -m""
 git push
 git status
 git log
 git diff
-git checkout ...
+git checkout
 
 02. 什么是 html 实体？常见 html 实体有哪些？
- 以&开头以;结尾的字符串，用来表示显示在页面里，不属于代码的符号。常见的有 &nbsp; &amp; &gt; &lt; &copy; &quot; &apos;
+ 以&开头以;结尾的字符串，用来表示显示在视窗里，不属于代码的符号。常见的有 &nbsp; &amp; &gt; &lt; &copy; &quot; &apos;
 
 03. 计算机为什么使用二进制？
 
-二进制足够简单，而且有布尔逻辑的理论支撑，很方便映射到真/假，方便计算和排除数据误差。由八个二进制位构成的一个字节也有256个字符，足够储存信息。
+二进制足够简单，而且有布尔逻辑的理论支撑，很方便映射到真/假，方便计算和排除数据误差。
+由八个二进制位构成的一个字节也有256个字符，足够储存信息。
 
 04. 什么是 Unicode？如何表示，有什么作用？最通用的 Unicode 实现是？
 
@@ -54,7 +55,7 @@ Unicode 是一套让全世界所有国家所有字符在同一编码环境编号
 
 
 09. 为什么英文很重要？
-因为大部分最尖端和编得最好的技术资料都是英语写的。
+因为大部分最尖端和编得最好的技术资料，最丰富的交流平台都是英语的。
 
 
 10. 将二进制 `10010` 数转换为十进制数
@@ -94,7 +95,7 @@ Unicode 是一套让全世界所有国家所有字符在同一编码环境编号
 
 
 16. 为什么说 html 与数学公式有诸多相似之处？
-需要用到集合，函数等数学知识
+二者都用符号表达一些抽象概念
 
 
 17. 几种常见图片格式有什么区别和特点？
@@ -106,21 +107,14 @@ jpg:
 png:
 portable network graphic
 无损压缩，在视频里只保存每帧之间有差异的部分
-    * 适合存储大片完全相同颜色的图片，典型的就是软件的截图，不适合用来保存照片，支持透明色（Alpha通道）
-      * 每个点实际上由4个字节组成
-      * Red Green Blue Alpha
+适合存储大片完全相同颜色的图片，典型的就是软件的截图，不适合用来保存照片，支持透明色（Alpha通道）
+每个点实际上由4个字节组成 Red Green Blue Alpha
 
 gif:
-* 动图
-    * 颜色表
-    * 无损压缩(原始图片颜色数量不足256时)
-    * gif图片一般长宽都比较小
-      * 意味着它里的颜色数量比较小
-    * 抽样出256种颜色
-    * 并没有存储每张图的所有点
-      * 而只存储了变化了的那些点
-      * 第一帧肯定存储完整的
-    * 支持透明，但支持两种透明，要么某个点完全透明，要么完全不透明
+颜色只有256种，用一个字节储存像素点，原始图片颜色数量不足256时无损压缩
+gif图片一般长宽都比较小，意味着它里的颜色数量比较小
+并没有存储每张图的所有点，而只存储了变化了的那些点 （第一帧肯定存储完整的）
+支持透明，但支持两种透明，要么某个点完全透明，要么完全不透明
 
 psd:* Photoshop
     * 保存了Photoshop在构造这张图片的过程中的所有信息
@@ -144,7 +138,7 @@ psd:* Photoshop
 
 
 19. 用什么方法扩大一个 checkbox 的可点击区域？
-和label/button等其它元素关联起来
+和label/button等其它元素关联起来，加入图片和文字
 
 20. 什么是 MIME Type？、
 A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document, file, or assortment of bytes.
@@ -252,8 +246,8 @@ li内可以是任意其它标签
     * alternative
     替换的选择
     * 属性
-    attribute
-    * obsolate
+    attributee
+    * obsolete
     已弃用
     * 二进制
     binary
@@ -324,7 +318,7 @@ vh:视口高度的百分之一
 
 
 36. 显示器的物理分辨率为 `1920x1080`，操作系统设置的分辨率为 `1280x720`，网页的放大倍数为 `110%`，请计算一个 CSS 像素对应多少个显示器物理像素（面积与长度）？
-0.48
+2.475
 
 
 37. 写出如下代码显示在浏览器后**每个单词**的字号
@@ -348,7 +342,7 @@ vh:视口高度的百分之一
     </style>
     <body>
       <section>
-        <h2>Brown</h2>  （200px）
+        <h2>Brown</h2>  （24px）
         <p>quick</p>  （24px)
         <p>jumps (24px) <span>over(36px) <span>lazy (36px)</span> dog (36px)</span></p>
         <p class="sucks">sucks (200px)</p>
@@ -395,8 +389,8 @@ ctrl + / 或者任意字符在选择器开头破坏css格式
     </section>
     ```
 
-    所有后代:ul li a
-    祖先:main section
+    所有后代:ul li a img
+    祖先:main section html
     子:ul
     父:main
     兄弟元素:h2 aside
@@ -652,7 +646,7 @@ week
 
 
 57. option 标签的主体内容太长影响用户体验，你会如何解决？
-      在css 中加入overflow:scroll属性
+      在css 中加入设置合适的height值并加入overflow:scroll声明
 
 58. 想要在 textarea 标签中默认显示一段 html 代码最安全的做法是什么？、
 在textarea 标签里嵌套 <pre><code></code></pre>
@@ -745,7 +739,7 @@ week
 62. 请说出你对命令行程序的理解，以及其与 GUI 程序的区别
 
 命令行是用文字命令控制电脑
-但是gui可以用鼠标和其它方式
+但是gui可以用鼠标和其它方式，并且文件夹等路径用图像表示
 
 63. 请确认以下标签分别属性什么类别（Content Category）？
 
