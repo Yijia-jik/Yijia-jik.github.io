@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by Yijia-jik (http://jsbin.com/qocisey/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta name="description" content="radio-slider-mi">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style id="jsbin-css">
+    div {
+      position: relative;
+      width: 613px;
+
+    }
+
+    img {
+      width: 613px;
+      left: 0px;
+      position: absolute;
+      opacity: 0;
+      transition: .5s;
+    }
+
+    input {
+      margin-top: 241px;
+    }
+
+    input.i1:checked+img {
+      opacity: 1;
+    }
+
+    input.i2:checked+img {
+      opacity: 1;
+    }
+
+    input.i3:checked+img {
+      opacity: 1;
+    }
+
+    input.i4:checked+img {
+      opacity: 1;
+    }
+
+    input.i5:checked+img {
+      opacity: 1;
+    }
+
+    label.left {
+      position: absolute;
+      left: 0;
+      top: 33%;
+      width: 35px;
+      height: 70px;
+      background-image: url(http://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png);
+      background-repeat: no-repeat;
+      background-position: -3px;
+    }
+
+    label.right {
+      position: absolute;
+      right: 0;
+      top: 33%;
+      width: 35px;
+      height: 70px;
+      background-image: url(http://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png);
+      background-repeat: no-repeat;
+      background-position: -46px;
+    }
+
+
+    label.i1 {
+      z-index: 5;
+    }
+
+    label.i2 {
+      z-index: 4;
+    }
+
+    label.i3 {
+      z-index: 3;
+    }
+
+    label.i4 {
+      z-index: 2;
+    }
+
+    label.i5 {
+      z-index: 1;
+    }
+
+
+
+    input.i1:checked~label.i2.left {
+      z-index: 999;
+    }
+
+    input.i2:checked~label.i3.left {
+      z-index: 999;
+    }
+
+    input.i3:checked~label.i4.left {
+      z-index: 999;
+    }
+
+    input.i4:checked~label.i5.left {
+      z-index: 999;
+    }
+
+
+    input.i2:checked~label.i1.right {
+      z-index: 999;
+    }
+
+    input.i3:checked~label.i2.right {
+      z-index: 999;
+    }
+
+    input.i4:checked~label.i3.right {
+      z-index: 999;
+    }
+
+    input.i5:checked~label.i4.right {
+      z-index: 999;
+    }
+
+    input.i1:checked~label.i5.right {
+      z-index: 999;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <input name=slider type="radio" class=i1 id=b1>
+    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e52c3e98602b90f198ec316dce253cba.jpg?w=2452&h=920" alt=""
+      id=a1>
+    <label for="b1" class="i1 left"></label>
+    <label for="b5" class="i5 right"></label>
+
+
+    <input name=slider type="radio" class=i2 id=b2>
+    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/05bc8af40fc9f9941808d253034c279d.jpg?w=2452&h=920" alt=""
+      id=a2>
+    <label for="b2" class="i2 left"></label>
+    <label for="b1" class="i1 right"></label>
+
+
+    <input name=slider type="radio" class=i3 id=b3>
+    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5cac96e3dd740cfd6384986cebdbface.jpg?w=2452&h=920" alt=""
+      id=a3>
+    <label for="b3" class="i3 left"></label>
+    <label for="b2" class="i2 right"></label>
+
+
+    <input name=slider type="radio" class=i4 id=b4>
+    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ad84d80e7fc5990162a387a6b103af01.jpeg?w=2452&h=920" alt=""
+      id=a4>
+    <label for="b4" class="i4 left"></label>
+    <label for="b3" class="i3 right"></label>
+
+
+    <input name=slider type="radio" class=i5 id=b5>
+    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/17728eaeb111572cf03e4962205f2ba6.jpg?w=2452&h=920" alt=""
+      id=a5>
+    <label for="b5" class="i5 left"></label>
+    <label for="b4" class="i4 right"></label>
+
+
+    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e52c3e98602b90f198ec316dce253cba.jpg?w=2452&h=920" alt=""
+      id=a1>
+    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/05bc8af40fc9f9941808d253034c279d.jpg?w=2452&h=920" alt=""
+      id=a2>
+    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5cac96e3dd740cfd6384986cebdbface.jpg?w=2452&h=920" alt=""
+      id=a3>
+    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ad84d80e7fc5990162a387a6b103af01.jpeg?w=2452&h=920" alt=""
+      id=a4>
+    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/17728eaeb111572cf03e4962205f2ba6.jpg?w=2452&h=920" alt=""
+      id=a5>
+</body>
+
+</html>
+</div>
+
+
+
+<!-- ul>li{$}*8 -->
