@@ -1,0 +1,38 @@
+(function () {
+  let timeout;
+
+  function init(attempts) {
+    clearTimeout(timeout)
+    attempts = attempts || 1
+    if (attempts > 3) return
+    if (typeof CodeFundAd === 'undefined') {
+      timeout = setTimeout(function () { init(attempts + 1) }, 350)
+      return
+    }
+    new CodeFundAd({"selector":"#codefund_ad","template":"bottom-bar","theme":"light","fallback":true,"urls":{"impression":"https://codefund.io/display/5f4c8063-a4b5-4168-9405-5467810c9d29.gif","campaign":"https://codefund.io/impressions/5f4c8063-a4b5-4168-9405-5467810c9d29/click?campaign_id=144\u0026creative_id=62\u0026property_id=23\u0026template=bottom-bar\u0026theme=light","poweredBy":"https://codefund.io/invite/w_7Siqe2mMo","adblock":"https://cdn2.codefund.app/assets/px.js","uplift":"https://codefund.io/impressions/5f4c8063-a4b5-4168-9405-5467810c9d29/uplift?advertiser_id=185"},"creative":{"name":"CodeFund (Do you qualify?)","headline":"CodeFund","body":"has paid out over $170K to open source projects in 2019. Do you qualify? 🤔","cta":"Learn more","imageUrls":{"icon":"https://cdn2.codefund.app/VZ1vXULcKUs8ZeWjau5PMuvd","small":"https://cdn2.codefund.app/EtSYy3sxPP2e2fpVaK4xMGq2","large":"https://cdn2.codefund.app/EAKJ1oCZkdL6CtSAmHFJ7fco","wide":"https://cdn2.codefund.app/xtM8rbdX3n1fp4VGwXErnLe7"}}})
+  }
+
+  const codefundStylesheetId = 'codefund-style'
+  const codefundScriptId = 'codefund-script'
+
+  if (!document.getElementById(codefundStylesheetId)) {
+    const stylesheet = document.createElement('link')
+    stylesheet.setAttribute('id', codefundStylesheetId)
+    stylesheet.setAttribute('rel', 'stylesheet')
+    stylesheet.setAttribute('media', 'all')
+    stylesheet.setAttribute('href', 'https://codefund.io/packs/css/code_fund_ad-671bae33.css')
+    stylesheet.addEventListener('load', init)
+    document.head.appendChild(stylesheet)
+  }
+
+  if (document.getElementById(codefundScriptId)) {
+    init()
+  } else {
+    const script = document.createElement('script')
+    script.setAttribute('id', codefundScriptId)
+    script.setAttribute('type', 'text/javascript')
+    script.setAttribute('src', 'https://codefund.io/packs/js/code_fund_ad-d1ab71f2b6e935ef47c6.js')
+    script.addEventListener('load', init)
+    document.head.appendChild(script)
+  }
+})()

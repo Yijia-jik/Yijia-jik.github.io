@@ -3,7 +3,7 @@
 Created using JS Bin
 http://jsbin.com
 
-Copyright (c) 2019 by Yijia-jik (http://jsbin.com/qocisey/2/edit)
+Copyright (c) 2019 by Yijia-jik (http://jsbin.com/qocisey/8/edit)
 
 Released under the MIT license: http://jsbin.mit-license.org
 -->
@@ -16,10 +16,11 @@ Released under the MIT license: http://jsbin.mit-license.org
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
   <style id="jsbin-css">
-    div {
+    div.slider {
+      margin-top: 60px;
       position: relative;
       width: 613px;
-
+      height: 230px;
     }
 
     img {
@@ -31,28 +32,19 @@ Released under the MIT license: http://jsbin.mit-license.org
     }
 
     input {
+      z-index: 1000;
       margin-top: 241px;
+      display: none;
     }
 
-    input.i1:checked+img {
-      opacity: 1;
-    }
-
-    input.i2:checked+img {
-      opacity: 1;
-    }
-
-    input.i3:checked+img {
-      opacity: 1;
-    }
-
-    input.i4:checked+img {
-      opacity: 1;
-    }
-
+    input.i1:checked+img,
+    input.i2:checked+img,
+    input.i3:checked+img,
+    input.i4:checked+img,
     input.i5:checked+img {
       opacity: 1;
     }
+
 
     label.left {
       position: absolute;
@@ -62,7 +54,7 @@ Released under the MIT license: http://jsbin.mit-license.org
       height: 70px;
       background-image: url(http://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png);
       background-repeat: no-repeat;
-      background-position: -3px;
+      background-position: -87px;
     }
 
     label.right {
@@ -73,7 +65,7 @@ Released under the MIT license: http://jsbin.mit-license.org
       height: 70px;
       background-image: url(http://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png);
       background-repeat: no-repeat;
-      background-position: -46px;
+      background-position: -127px;
     }
 
 
@@ -98,99 +90,123 @@ Released under the MIT license: http://jsbin.mit-license.org
     }
 
 
-
-    input.i1:checked~label.i2.left {
-      z-index: 999;
-    }
-
-    input.i2:checked~label.i3.left {
-      z-index: 999;
-    }
-
-    input.i3:checked~label.i4.left {
-      z-index: 999;
-    }
-
-    input.i4:checked~label.i5.left {
+    input.i1:checked~label.i2.right,
+    input.i2:checked~label.i3.right,
+    input.i3:checked~label.i4.right,
+    input.i4:checked~label.i5.right {
       z-index: 999;
     }
 
 
-    input.i2:checked~label.i1.right {
+    input.i2:checked~label.i1.left,
+    input.i3:checked~label.i2.left,
+    input.i4:checked~label.i3.left,
+    input.i5:checked~label.i4.left,
+    input.i1:checked~label.i5.left {
       z-index: 999;
     }
 
-    input.i3:checked~label.i2.right {
-      z-index: 999;
+    label.left:hover {
+      background-position: -3px;
     }
 
-    input.i4:checked~label.i3.right {
-      z-index: 999;
+    label.right:hover {
+      background-position: -45px;
     }
 
-    input.i5:checked~label.i4.right {
-      z-index: 999;
+
+    label.bottom {
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: 10px;
+      height: 10px;
+      width: 10px;
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+
     }
 
-    input.i1:checked~label.i5.right {
-      z-index: 999;
+    label.bottom:hover {
+      background-color: hsla(0, 0%, 100%, .4);
+      border-color: rgba(0, 0, 0, .4);
+    }
+
+    input.i1:checked~section label.bottom.i1,
+    input.i2:checked~section label.bottom.i2,
+    input.i3:checked~section label.bottom.i3,
+    input.i4:checked~section label.bottom.i4,
+    input.i5:checked~section label.bottom.i5 {
+      background-color: hsla(0, 0%, 100%, .4);
+      border-color: rgba(0, 0, 0, .4);
+    }
+
+    section {
+      position: absolute;
+      width: 100px;
+      left: auto;
+      right: 8px;
+      bottom: 0px;
+      text-align: right;
     }
   </style>
 </head>
 
 <body>
 
-  <div>
+  <div class=slider>
     <input name=slider type="radio" class=i1 id=b1>
     <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e52c3e98602b90f198ec316dce253cba.jpg?w=2452&h=920" alt=""
       id=a1>
-    <label for="b1" class="i1 left"></label>
-    <label for="b5" class="i5 right"></label>
+    <label for="b1" class="i1 right"></label>
+
+    <label for="b5" class="i5 left"></label>
 
 
     <input name=slider type="radio" class=i2 id=b2>
     <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/05bc8af40fc9f9941808d253034c279d.jpg?w=2452&h=920" alt=""
       id=a2>
-    <label for="b2" class="i2 left"></label>
-    <label for="b1" class="i1 right"></label>
+    <label for="b2" class="i2 right"></label>
+
+    <label for="b1" class="i1 left"></label>
 
 
     <input name=slider type="radio" class=i3 id=b3>
     <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5cac96e3dd740cfd6384986cebdbface.jpg?w=2452&h=920" alt=""
       id=a3>
-    <label for="b3" class="i3 left"></label>
-    <label for="b2" class="i2 right"></label>
+    <label for="b3" class="i3 right"></label>
+
+    <label for="b2" class="i2 left"></label>
 
 
     <input name=slider type="radio" class=i4 id=b4>
     <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ad84d80e7fc5990162a387a6b103af01.jpeg?w=2452&h=920" alt=""
       id=a4>
-    <label for="b4" class="i4 left"></label>
-    <label for="b3" class="i3 right"></label>
+    <label for="b4" class="i4 right"></label>
+    <label for="b3" class="i3 left"></label>
 
 
     <input name=slider type="radio" class=i5 id=b5>
     <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/17728eaeb111572cf03e4962205f2ba6.jpg?w=2452&h=920" alt=""
       id=a5>
-    <label for="b5" class="i5 left"></label>
-    <label for="b4" class="i4 right"></label>
+    <label for="b5" class="i5 right"></label>
+    <label for="b4" class="i4 left"></label>
 
+    <section>
+      <label for="b1" class="i1 bottom"></label>
+      <label for="b2" class="i2 bottom"></label>
+      <label for="b3" class="i3 bottom"></label>
+      <label for="b4" class="i4 bottom"></label>
+      <label for="b5" class="i5 bottom"></label>
+    </section>
+  </div>
 
-    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e52c3e98602b90f198ec316dce253cba.jpg?w=2452&h=920" alt=""
-      id=a1>
-    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/05bc8af40fc9f9941808d253034c279d.jpg?w=2452&h=920" alt=""
-      id=a2>
-    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5cac96e3dd740cfd6384986cebdbface.jpg?w=2452&h=920" alt=""
-      id=a3>
-    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ad84d80e7fc5990162a387a6b103af01.jpeg?w=2452&h=920" alt=""
-      id=a4>
-    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/17728eaeb111572cf03e4962205f2ba6.jpg?w=2452&h=920" alt=""
-      id=a5>
+  <!-- <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e52c3e98602b90f198ec316dce253cba.jpg?w=2452&h=920" alt="" id=a1>
+<img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/05bc8af40fc9f9941808d253034c279d.jpg?w=2452&h=920" alt="" id=a2>
+<img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5cac96e3dd740cfd6384986cebdbface.jpg?w=2452&h=920" alt="" id=a3>
+<img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ad84d80e7fc5990162a387a6b103af01.jpeg?w=2452&h=920" alt="" id=a4>
+<img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/17728eaeb111572cf03e4962205f2ba6.jpg?w=2452&h=920" alt="" id=m1> -->
+
 </body>
 
 </html>
-</div>
-
-
-
 <!-- ul>li{$}*8 -->
