@@ -1,0 +1,110 @@
+<script id="ch0103/01" type="ok">
+  console.log(Number(prompt()) + Number(prompt()))
+</script>
+<script id="ch0103/02" type="ok">
+  var a = Number(prompt()), b = Number(prompt()), c = Number(prompt())
+  var r = (a + b) * c
+  console.log(r)
+</script>
+<script id="ch0103/03" type="ok">
+  var a = Number(prompt()), b = Number(prompt()), c = Number(prompt())
+  var r = (a + b) / c
+  console.log(r)
+</script>
+<script id="ch0103/04" type="ok">
+  var a = Number(prompt()), b = Number(prompt())
+  var x1 = a / b
+  x2 = a % b
+  console.log(Math.trunc(x1), x2)
+</script>
+<script id="ch0103/05" type="ok">
+  var a = Number(prompt()), b = Number(prompt())
+  var x = a / b
+  console.log(x.toFixed(9))
+</script>
+<script id="ch0103/06" type="ok">
+  var a = Number(prompt()), b = Number(prompt())
+  var x = b / a
+  console.log(Number(x * 100).toFixed(3) + "%")
+</script>
+<script id="ch0103/07" type="ok">
+  var x = Number(prompt()), a = Number(prompt()), b = Number(prompt()), c = Number(prompt()), d = Number(prompt())
+  var f = a * Math.pow(x,3) + b * Math.pow(x, 2) + c * x + d
+  console.log(f.toFixed(7))
+</script>
+<script id="ch0103/08" type="ok">
+  var a = Number(prompt())
+  var x = 5 * (a - 32) / 9
+  console.log(x.toFixed(5))
+</script>
+<script id="ch0103/09" type="ok">
+  var r = Number(prompt())
+  var a = 2 * r, b = 2 * 3.1415926 * r, c = 3.1415926 * r * r
+  console.log(Number(a).toFixed(4), Number(b).toFixed(4), Number(c).toFixed(4))
+</script>
+<script id="ch0103/10" type="ok">
+  var r1 = Number(prompt()), r2 = Number(prompt())
+  var R = 1 / (1 / r1 + 1 / r2)
+  console.log(R.toFixed(2))
+</script>
+<script id="ch0103/11" type="ok">
+  var a = Number(prompt()).toFixed(3), b = Number(prompt()).toFixed(4)
+  var x = a % b
+  console.log(x.toFixed(4))
+</script>
+<script id="ch0103/12" type="ok">
+  var r = Number(prompt())
+  var V = 4 / 3 * 3.14 * r * r * r
+  console.log(V.toFixed(2))
+</script>
+<script id="ch0103/13" type="ok">
+  var a = Number(prompt())
+  var x = Math.floor(a / 100)
+  var y = Math.floor((a - 100 * x) / 10)
+  var z = Math.floor(a - 100 * x - 10 * y)
+  console.log(String(z) + String(y) + String(x))
+</script>
+<script id="ch0103/14" type="ok">
+  var h = Number(prompt()), r = Number(prompt())
+  var x = 20000 / (3.14159 * r * r * h)
+  console.log (Math.ceil(x))
+</script>
+<script id="ch0103/15" type="ok">
+  var n = Number(prompt()), x = Number(prompt()), y = Number(prompt())
+  var x = n - y / x
+  console.log(Math.floor(x))
+</script>
+<script id="ch0103/16" type="ok">
+  var xa = Number(prompt()), ya = Number(prompt())
+  var xb = Number(prompt()), yb = Number(prompt())
+  var l = Math.sqrt(Math.pow((xa - xb), 2) + Math.pow((ya - yb), 2))
+  console.log(l.toFixed(3))
+</script>
+<script id="ch0103/17" type="ok">
+  var x1 = Number(prompt()), y1 = Number(prompt())
+  var x2 = Number(prompt()), y2 = Number(prompt())
+  var x3 = Number(prompt()), y3 = Number(prompt())
+  var a = Math.abs(x1 - x2), b = Math.abs(x1 - x3), c = Math.abs(x2 - x3)
+  var d = Math.abs(y1 - y2), e = Math.abs(y1 - y3), f = Math.abs(y2 - y3)
+  var x = Math.sqrt(Math.pow(a, 2) + Math.pow(d, 2))
+  var y = Math.sqrt(Math.pow(b, 2) + Math.pow(e, 2))
+  var z = Math.sqrt(Math.pow(c, 2) + Math.pow(f, 2))
+  var p = (x + y + z) / 2
+  var s = Math.sqrt(p * (p - x) * (p - y) * (p - z))
+  console.log(s.toFixed(2))
+</script>
+<script id="ch0103/18" type="ok">
+  var a1 = Number(prompt()), a2 = Number(prompt()), n = Number(prompt())
+  var x = a1 + (n-1) * (a2 - a1)
+  console.log(x)
+</script>
+<script id="ch0103/19" type="ok">
+  var c, b = Number(prompt())
+  var x = a * b
+  console.log(x)
+</script>
+<script id="ch0103/20" type="ok">
+  var n = Number(prompt())
+  var x = Math.pow(2, n)
+  console.log(x)
+</script>
