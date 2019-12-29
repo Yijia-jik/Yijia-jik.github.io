@@ -130,7 +130,11 @@
     console.log("odd");
 </script>
 <script id="ch0104/04" type="yeah">
-  ???
+  var a = prompt()
+  if (a.charCodeAt(0) % 2 == 0)
+    console.log("NO")
+  else
+    console.log("YES")
 </script>
 <script id="ch0104/05" type="yeah">
   var x = Number(prompt()), y = Number(prompt())
@@ -150,7 +154,7 @@
 </script>
 <script id="ch0104/07" type="yeah">
   var a = Number(prompt()), b = Number(prompt())
-  if (a >= 10 && b >= 20)
+  if (a >= 10 || b >= 20)
     console.log(1);
   else
     console.log(0)
