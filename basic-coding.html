@@ -295,7 +295,7 @@
     var x = +prompt()
     var sum = sum + x
   }
-  console.log((sum / 12).toFixed(2))
+  console.log("$" + (sum / 12).toFixed(2))
 </script>
 <script id="ch0105/03" type="ha">
   var n = +prompt()
@@ -455,7 +455,7 @@ debugger
   }
   console.log(Math.trunc(M))
 </script>
-<script id="ch0105/16" type="ha">
+<script id="ch0105/16" type="ah">
   var N = +prompt(), K = +prompt()
   var r = 1 + K / 100
   var sum = N
@@ -467,9 +467,10 @@ debugger
     console.log(i)
     break
   }
-  if (sum < price){
+}
+  if (sum < price) {
     console.log("impossible!")
-  }}
+  }
 </script>
 <script id="ch0105/17" type="ha">
   var K = +prompt()
@@ -481,9 +482,10 @@ debugger
   }
   console.log(a)
 </script>
-<script id="ch0105/18" type="ha">
+<script id="ch0105/18" type="ah">
+
 </script>
-<script id="ch0105/19" type="ha">
+<script id="ch0105/19" type="ah">
 
 </script>
 <script id="ch0105/20" type="ha">
@@ -498,7 +500,7 @@ debugger
     i += 1
   }
   while (i < 10)
-  console.log((suma + sumb - h).toFixed(4), h.toFixed(7))
+  console.log((sumDown + sumUp - h).toFixed(4), h.toFixed(7))
 </script>
 <script id="ch0105/21" type="ha">
   debugger
@@ -557,7 +559,8 @@ debugger
       rest = rest - t
     }
   }
-  if (!flag) console.log(Math.trunc(rest + saving) * 1.2)
+  if (!flag)
+    console.log(Math.trunc(rest + saving) * 1.2)
 </script>
 <script id="ch0105/23" type="ha">
   var m = +prompt()
@@ -644,7 +647,7 @@ debugger
     var digit = n % 10
     result = result * 10 + digit
     n = (n - digit) / 10
-  } while (n > 0)
+  } while (n != 0)
   console.log(result)
 </script>
 <script id="ch0105/30" type="ha">
@@ -662,13 +665,14 @@ debugger
 
       if (count == k){
         console.log("YES")
+        break
       }
     }
   } else {
     console.log("NO")
   }
 </script>
-<script id="ch0105/31" type="ha">
+<script id="ch0105/31" xtype="ha">
   var N = +prompt()
   var M = +prompt()
   var result = ""
@@ -681,7 +685,7 @@ debugger
 
     }
     if (flag == false && light > 0){
-      result += light
+      result += "," + light
     }
   }
   console.log(result)
