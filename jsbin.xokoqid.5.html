@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by Yijia-jik (http://jsbin.com/xokoqid/5/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="小米主页作业">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+html, body {
+  font-size:0;
+  margin:0;
+  padding:0;
+  height:100%;
+  font-size:0;} 
+
+
+
+.header{
+  min-width:1226px;
+  height:140px;
+  background-color: #fff;
+  position:absolute;
+}
+
+.black-topbar{
+  position:absolute;
+  font:12px "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+  background-color: #333;
+  white-space:nowrap;
+  top:0;
+  height:40px;
+  width:100%;
+  line-height:40px;}
+  
+  a {
+    color:#b0b0b0;
+  }
+
+div.white-topbar {
+  position:absolute;
+  top:40px;
+  height:100px;
+   width:100%}
+
+div.logo {
+  padding:0;
+  overflow:hidden;
+  background-color:rgb(255, 103, 0);
+  width:55px;
+  height:55px;
+  position:absolute;
+  left:0;
+  top:25%;
+  line-height:55px;
+}
+
+
+div.image {
+  width:98px;
+  height:49px;
+  position:absolute;
+  left:1.5px;
+  top:3px;
+  transition:.2s;}
+
+div.image:hover{
+ left:-46px;
+  }
+
+div.hover-topmenu {
+  width:992px;
+  height:100px;
+  position:absolute;
+  left:100px;
+}
+
+ul.hover-topmenu {
+  list-style:none;
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  width:800px; 
+}
+
+ul.hover-topmenu>li{
+  font:16px "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+  display:inline-block;
+  line-height:100px;
+  padding-right:30px;
+}
+
+
+.search-bar {
+  position:absolute;
+  
+}
+  #search-bar {
+    position:absolute;
+    left:100px;
+}
+  
+  
+  
+.home-hero-container {
+  position:absolute;
+  width:1226px;
+  height:670px;
+  top:140px;
+
+}
+  
+
+.sidebar-and-slider {
+  width:1226px;
+  height:460px;
+  position:absolute;
+  border:1px solid;
+  padding:0;
+  
+}
+
+div.slider {
+  position:relative;
+  width:1226px;
+  height:460px;
+}
+
+img {
+  width:1226px;
+  left:0px;
+  position:absolute;
+  display:none;
+  transition:.5s;}
+
+input {
+  display:none;
+}
+
+input.i1:checked+img,
+input.i2:checked+img,
+input.i3:checked+img,
+input.i4:checked+img,
+input.i5:checked+img {
+  opacity:1;
+}
+
+
+label.left {
+  position: absolute;
+    top: 50%;
+    width: 41px;
+    height: 69px;
+    margin-top: -35px;
+  left:234px;
+ background-image:url(http://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png);
+  background-repeat:no-repeat;
+ background-position:-84px;
+}
+
+label.right {
+    position: absolute;
+    top: 50%;
+    width: 41px;
+    height: 69px;
+    margin-top: -35px;
+  right:0;
+ background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -125px 50%;
+}
+
+label.left:hover {
+background-position:-1px;
+}
+
+label.right:hover {
+background-position:-41px;
+}
+
+
+label.i1 {z-index:5;}
+label.i2 {z-index:4;}
+label.i3 {z-index:3;}
+label.i4 {z-index:2;}
+label.i5 {z-index:1;}
+
+
+input.i1:checked~label.i2.right,
+input.i2:checked~label.i3.right,
+input.i3:checked~label.i4.right,
+input.i4:checked~label.i5.right
+{
+  z-index:999;
+}
+
+
+input.i2:checked~label.i1.left,
+input.i3:checked~label.i2.left,
+input.i4:checked~label.i3.left,
+input.i5:checked~label.i4.left,
+input.i1:checked~label.i5.left{
+  z-index:999;}
+
+div.label-bottom{
+  position:absolute;
+    right: 30px;
+    bottom: 20px;
+    height:21px;
+    text-align: right;
+  background-color: red;
+}
+
+div.label-bottom::before{
+  content="";
+  display:inline-block;
+    line-height:21px;
+  vertical-align:middle;
+  width:10px;
+   border:1px solid;
+}
+
+
+label.bottom{
+  display:inline-block;
+  vertical-align:middle;
+  margin:0px 4px 0px 4px;
+  box-sizing:border-box;
+  border-radius:10px;
+  height:10px;
+  width:10px;
+  background-color:rgba(0, 0, 0, 0.4);
+  border:2px solid rgba(255, 255, 255, 0.3);
+}
+
+label.bottom:hover{
+  background-color: hsla(0,0%,100%,.4);
+  border-color:rgba(0,0,0,.4);
+}
+
+input.i1:checked~section label.bottom.i1,
+input.i2:checked~section label.bottom.i2,
+input.i3:checked~section label.bottom.i3,
+input.i4:checked~section label.bottom.i4,
+input.i5:checked~section label.bottom.i5 {
+   background-color: hsla(0,0%,100%,.4);
+  border-color:rgba(0,0,0,.4);
+  }
+
+
+ul.grey-sidebar{
+  margin:0;
+  padding:20px 0 20px 0;
+  background-color:rgba(105, 101, 101, 0.6);
+  font:14px "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+  color:white;
+  float:left;
+  box-sizing:border-box;
+  width:234px;
+  height:460px;
+  list-style:none;}
+
+ul.grey-sidebar>li>a {
+  color:white;
+  display:block;
+  width:234px;
+  height:42px;
+  line-height:42px;
+  padding-left:30px
+  }
+
+ul.grey-sidebar>li>a:hover {
+  background-color:#ff6700;
+}
+
+.grey-sidebar-lists {
+  display:none;
+}
+
+ul.grey-sidebar>li>a:hover+.grey-sidebar-lists {
+  display:inline-block;
+  position:absolute;
+  top:0;
+  left:234px;
+  width:992px;
+  height:460px;
+  background-color:black;
+  padding:0;
+}
+
+ul.grey-sidebar-list {
+  list-style:none;
+  display:block;
+  box-sizing:border-box;
+  width:248px;
+  height:460px;
+  padding:2px 0;
+  margin:0;
+  overflow:hidden}
+  
+  
+ul.grey-sidebar-list>li {
+  margin:0;
+  width:256px;
+  height:40px}
+
+
+ul.grey-sidebar>li>a::before {
+  xcontent="\E623";
+  xfont-family:iconfont;
+  xposition: absolute;
+    xtop: 12px;
+    xright: 20px;
+    xfont-size: 16px;
+    xline-height: 16px;
+    xcolor: #e0e0e0;
+}
+
+
+div.slider {
+  width:1226px;
+ }
+
+div.home-hero-subrow {
+  width:1226px;
+  height:170px;
+}
+
+
+
+
+
+
+
+</style>
+</head>
+  
+<body>
+  <div class=header>
+    <div class=black-topbar>
+      <a href="">小米商城</a><span>|</span>
+      <a href="">MIUI </a><span>|</span>
+      <a href="">IoT</a><span>|</span>
+      <a href="">云服务</a><span>|</span>
+      <a href="">金融</a><span>|</span>
+      <a href="">有品</a><span>|</span>
+      <a href="">小爱开放平台</a><span>|</span>
+      <a href="">企业团购</a><span>|</span>
+      <a href="">资质证照</a><span>|</span>
+      <a href="">协议规则</a><span>|</span>
+      <a href="">下载app</a><span>|</span>
+      <a href="">Select Location</a>
+    </div>
+
+
+    <div class=white-topbar>
+      <div class=logo>
+        <div class=image>
+          <a href="https://www.mi.com/index.html">
+            <img src="https://s02.mifile.cn/assets/static/image/mi-home.png" alt="">
+            <img src="http://s02.mifile.cn/assets/static/image/mi-logo.png" alt="">
+          </a>
+        </div>
+      </div>
+
+      <div class=hover-topmenu>
+        <ul class=hover-topmenu>
+          <li><a href="">小米手机</a></li>
+          <li><a href="">Redmi 红米</a></li>
+          <li><a href="">电视</a></li>
+          <li><a href="">笔记本</a></li>
+          <li><a href="">家电</a></li>
+          <li><a href="">路由器</a></li>
+          <li><a href="">智能硬件</a></li>
+          <li><a href="">服务</a></li>
+          <li><a href="">社区</a></li>
+        </ul>
+      </div>
+      
+      <div class=search-bar>
+        <form action="//search.mi.com/search">
+        <label for="search-bar"></label>
+        <input type="text" id=search-bar>
+        <input type="submit" id=search-icon>
+          </form>
+      </div>
+      
+      
+    </div>
+  </div>
+
+
+  <div class=home-hero-container>
+    <div class=sidebar-and-slider>
+      <ul class=grey-sidebar>
+        <li><a href="">手机 电话卡</a><div class=grey-sidebar-lists>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul></div></li>
+        <li><a href="">电视 盒子</a><div class=grey-sidebar-lists>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul></div></li>
+        <li><a href="">笔记本 显示器 平板</a><div class=grey-sidebar-lists>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul></div></li>
+        <li><a href="">家电 插线板</a><div class=grey-sidebar-lists>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul></div></li>
+        <li><a href="">出行 穿戴</a><div class=grey-sidebar-lists>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul></div></li>
+        <li><a href="">智能 路由器</a><div class=grey-sidebar-lists>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul></div></li>
+        <li><a href="">电源 配件</a><div class=grey-sidebar-lists>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul></div></li>
+        <li><a href="">健康 儿童</a><div class=grey-sidebar-lists>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul></div></li>
+        <li><a href="">耳机 音箱</a><div class=grey-sidebar-lists>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul></div></li>
+        <li><a href="">生活 箱包</a><div class=grey-sidebar-lists>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul>
+          <ul class=grey-sidebar-list>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+            <li><a href=""><span>小米好</span></a></li>
+          </ul></div></li>
+      </ul>
+      <input name=slider type="radio" class=i1 id=b1>
+  <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e52c3e98602b90f198ec316dce253cba.jpg?w=2452&h=920" alt="" id=a1>
+  <label for="b1" class="i1 right"></label>
+ 
+<label for="b5" class="i5 left"></label>
+  
+  
+<input name=slider type="radio" class=i2 id=b2> 
+<img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/05bc8af40fc9f9941808d253034c279d.jpg?w=2452&h=920" alt="" id=a2>
+<label for="b2" class="i2 right"></label>
+
+<label for="b1" class="i1 left"></label>
+
+  
+<input name=slider type="radio" class=i3 id=b3>
+  <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5cac96e3dd740cfd6384986cebdbface.jpg?w=2452&h=920" alt="" id=a3>
+<label for="b3" class="i3 right"></label>
+
+  <label for="b2" class="i2 left"></label>
+
+  
+<input name=slider type="radio" class=i4 id=b4>
+  <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ad84d80e7fc5990162a387a6b103af01.jpeg?w=2452&h=920" alt="" id=a4>
+<label for="b4" class="i4 right"></label>
+<label for="b3" class="i3 left"></label>
+
+  
+<input name=slider type="radio" class=i5 id=b5>  
+  <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/17728eaeb111572cf03e4962205f2ba6.jpg?w=2452&h=920" alt="" id=a5>
+<label for="b5" class="i5 right"></label>
+<label for="b4" class="i4 left"></label>   
+  
+  <div class=label-bottom>
+<label for="b1" class="i1 bottom"></label>
+<label for="b2" class="i2 bottom"></label> 
+    <label for="b3" class="i3 bottom"></label>
+   <label for="b4" class="i4 bottom"></label>
+    <label for="b5" class="i5 bottom"></label>
+    </div>
+</div>
+    
+    
+      <div class=home-hero-subrow></div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+</body>
+
+</html>

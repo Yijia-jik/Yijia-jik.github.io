@@ -1,0 +1,110 @@
+html,
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+* {
+  box-sizing: inherit;
+}
+.n {
+  height: 80px;
+  width: 500px;
+}
+.container {
+  width: 500px;
+  margin: auto;
+  background: #f2f2f2;
+}
+.header {
+  background: #f2f2f2;
+  position: fixed;
+  padding: 0 0.25rem;
+  width: 100%;
+  line-height: 1.15;
+}
+.header div {
+  font-size: 0;
+  width: 500px;
+  height: 58px;
+  margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: space-around;
+  justify-content: space-around;
+}
+.header div .icon1 {
+  width: 33px;
+  height: 22px;
+  line-height: 58px;
+  margin: 17px 10px;
+}
+.header div input {
+  display: inline-block;
+  vertical-align: middle;
+  flex-grow: 1;
+}
+.header div .icon2 {
+  width: 42px;
+  height: 42px;
+  margin: 8px 19px;
+}
+.header div ul {
+  margin: auto;
+  width: 500px;
+  height: 40px;
+  line-height: 40px;
+  overflow-x: auto;
+  padding: 0;
+  font-size: 0.26rem;
+  white-space: nowrap;
+  z-index: 2;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+.header div ul li {
+  display: inline-block;
+}
+.main {
+  display: flex;
+  flex-flow: column wrap;
+}
+.main > img {
+  width: 500px;
+}
+.main .list {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 500px;
+  height: 212px;
+  margin: auto;
+  background-color: green;
+}
+.main .list .list-item {
+  width: 100px;
+  height: 106px;
+  font-size: 0;
+}
+.main .list .list-item img {
+  display: inline;
+  width: 100px;
+  height: 106px;
+  display: block;
+}
+.gallery {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 353px;
+  width: 500px;
+}
+.gallery :first-child {
+  height: 353px;
+}
+.gallery :nth-child(2),
+.gallery :nth-child(3) {
+  height: 175px;
+}

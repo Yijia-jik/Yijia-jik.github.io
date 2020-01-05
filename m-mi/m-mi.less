@@ -1,0 +1,137 @@
+html,
+body {
+  margin    : 0;
+  box-sizing: border-box;
+
+
+}
+
+* {
+  box-sizing: inherit;
+}
+
+.n {
+  height: 80px;
+  width : 500px;
+}
+
+.container {
+  width     : 500px;
+  margin    : auto;
+  background: #f2f2f2;
+}
+
+.header {
+  background : #f2f2f2;
+  position   : fixed;
+  padding    : 0 .25rem;
+  width      : 100%;
+  line-height: 1.15;
+
+
+  div {
+    font-size      : 0;
+    width          : 500px;
+    height         : 58px;
+    margin         : auto;
+    display        : flex;
+    flex-flow      : row nowrap;
+    align-content  : space-around;
+    justify-content: space-around;
+
+    .icon1 {
+      width      : 33px;
+      height     : 22px;
+      line-height: 58px;
+      margin     : 17px 10px;
+    }
+
+    input {
+      display       : inline-block;
+      vertical-align: middle;
+
+      flex-grow: 1;
+    }
+
+    .icon2 {
+      width : 42px;
+      height: 42px;
+      margin: 8px 19px;
+    }
+
+  }
+
+  div {
+    ul {
+      margin     : auto;
+      width      : 500px;
+      height     : 40px;
+      line-height: 40px;
+      overflow-x : auto;
+      padding    : 0;
+
+      font-size      : .26rem;
+      white-space    : nowrap;
+      z-index        : 2;
+      list-style     : none;
+      display        : flex;
+      justify-content: space-around;
+
+      li {
+        display: inline-block;
+      }
+    }
+
+  }
+}
+
+.main {
+  display  : flex;
+  flex-flow: column wrap;
+
+  >img {
+    width: 500px;
+  }
+
+  .list {
+    display         : flex;
+    flex-flow       : column wrap;
+    justify-content : space-between;
+    align-content   : space-between;
+    width           : 500px;
+    height          : 212px;
+    margin          : auto;
+    background-color: green;
+
+    .list-item {
+      width    : 100px;
+      height   : 106px;
+      font-size: 0;
+
+      img {
+        display: inline;
+        width  : 100px;
+        height : 106px;
+        display: block;
+      }
+    }
+  }
+}
+
+.gallery {
+  display        : flex;
+  flex-flow      : column wrap;
+  justify-content: space-between;
+  align-content  : space-between;
+  height         : 353px;
+  width          : 500px;
+
+  :first-child {
+    height: 353px;
+  }
+
+  :nth-child(2),
+  :nth-child(3) {
+    height: 175px;
+  }
+}

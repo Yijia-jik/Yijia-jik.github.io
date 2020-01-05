@@ -455,19 +455,19 @@ debugger
   }
   console.log(Math.trunc(M))
 </script>
-<script id="ch0105/16" type="ah">
+<script id="ch0105/16" xtype="ah">
   var N = +prompt(), K = +prompt()
   var r = 1 + K / 100
   var sum = N
   var price = 200
-  for (var i = 2; i < 20; i++){
+  for (var i = 2; i < 20; i++) {
     sum += N
     price *= r
-  if (sum >= price){
-    console.log(i)
-    break
+    if (sum >= price) {
+      console.log(i)
+      break
+    }
   }
-}
   if (sum < price) {
     console.log("impossible!")
   }
@@ -483,7 +483,6 @@ debugger
   console.log(a)
 </script>
 <script id="ch0105/18" type="ah">
-
 </script>
 <script id="ch0105/19" type="ah">
 
@@ -672,19 +671,19 @@ debugger
     console.log("NO")
   }
 </script>
-<script id="ch0105/31" xtype="ha">
+<script id="ch0105/31" type="ha">
   var N = +prompt()
   var M = +prompt()
   var result = ""
-  for (var light = 0; light < N; light++){
-      var flag = true
-    for (var people = 0; people < M && people < N; people++){
-      if (light % people == 0){
+  for (var light = 0; light < N; light++) {
+    var flag = true
+    for (var people = 0; people < M && people < N; people++) {
+      if (light % people == 0) {
         flag = !flag
       }
 
     }
-    if (flag == false && light > 0){
+    if (flag == false && light > 0) {
       result += "," + light
     }
   }
