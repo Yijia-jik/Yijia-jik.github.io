@@ -455,7 +455,7 @@ debugger
   }
   console.log(Math.trunc(M))
 </script>
-<script id="ch0105/16" xtype="ah">
+<script id="ch0105/16" type="ah">
   var N = +prompt(), K = +prompt()
   var r = 1 + K / 100
   var sum = N
@@ -505,6 +505,18 @@ debugger
   debugger
   var N = +prompt()
   var i = 0
+    for (var i = 0; ; i++){
+      if (N == 1) {
+        console.log("END")
+        break
+      } else if (N % 2 == 0) {
+        console.log(N + "/" + 2 + "=" + N / 2)
+        N = N / 2
+      } else if (N % 2 != 0) {
+        console.log(N + "*" + 3 + "+" + 1 + "=" + (N * 3 + 1))
+        N = N * 3 + 1
+      }
+    }
   // do {
   //   i = i + 1
   //   if (N == 1) {
@@ -520,31 +532,13 @@ debugger
   //   }
   //   } while (i < 10)
   //   console.log("END")
-    for (var i = 0;; i++){
-      if (N == 1) {
-        break
-        console.log("END")
-
-      }
-      else if (N % 2 == 0) {
-        N = N / 2
-        console.log(N + "/" + 2 + "=" + N / 2)
-        continue
-      }
-      else if (N % 2 != 0) {
-        N = N * 3 + 1
-        console.log((N - 1) / 3 + "*" + 3 + "+" + 1 + "=" + N)
-        continue
-      }
-    }
-
 </script>
-<script id="ch0105/22" type="ha">
+<script id="ch0105/22" type="ah">
   var rest = 0
   var saving = 0
   var flag = false
   for (i = 1; i <= 12; i++){
-    rest =+ 300
+    rest += 300
     var budget = +prompt()
     if (budget > rest){
       console.log(-i)
@@ -687,7 +681,7 @@ debugger
       result += "," + light
     }
   }
-  console.log(result)
+  console.log(result.slice(1))
 </script>
 <script id="ch0105/32" type="ha">
   var n = +prompt()
@@ -816,16 +810,6 @@ debugger
   console.log(counter)
 </script>
 <script id="ch0105/42" type="ha">
-  var h = +prompt()
-  var w = +prompt()
-  var a = prompt()
-  var b = +prompt()
-  var W = a * W
-  var x = ""
-  for (i = 1; i <= h; i++){
-    x
-  }
-
 </script>
 <script id="ch0105/43" type="ah"></script>
 <script id="ch0105/44" type="ah">
