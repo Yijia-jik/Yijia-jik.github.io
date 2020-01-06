@@ -252,33 +252,38 @@
     console.log("no")
 </script>
 <script id="ch0104/19" type="yeah">
-  ????
   var a = +prompt(), b = +prompt(), c = prompt()
-  var r = a + c + b;
+  if (c == "+")
+    console.log(a + b);
+  if (c == "-")
+    console.log(a - b);
+  if (c == "*")
+    console.log(a * b);
   if (b == 0 && c == "/")
     console.log("Divided by zero!");
+  else if (c == "/")
+    console.log(a / b);
   else if (c != "+" && c != "-" && c != "*" && c != "/")
-    console.log("Invalid operator!");
-  else
-    console.log(Number(r))
+    console.log("Invalid operator!")
 </script>
 <script id="ch0104/20" type="yeah">
   var a = +prompt(), b = +prompt(), c = +prompt()
-  var d = -b / (2 * a), e = Math.sqrt(4 * a * c - b * b) / (2 * a)
+  var d = -b / (2 * a)
+  e = Math.sqrt(4 * a * c - b * b) / (2 * a)
   var x1 = (-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a), x2 = (-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a)
   if (b * b == 4 * a * c)
     console.log("x1=x2=" + x1.toFixed(5))
   if (b * b > 4 * a * c)
     console.log("x1=" + x1.toFixed(5) + ";" + "x2=" + x2.toFixed(5))
   if (b * b < 4 * a * c)
-    console.log("x1=" + d.toFixed(5) + "+" + e.toFixed(5) + ";" + "x2=" + d.toFixed(5) + "-" + e.toFixed(5))
+    console.log("x1=" + d.toFixed(5) + "+" + e.toFixed(5) + "i" + ";" + "x2=" + d.toFixed(5) + "-" + e.toFixed(5) + "i")
 </script>
 <script id="ch0104/21" type="yeah">
-  var a = +prompt(), b = +prompt(), c = +prompt()
-  var x = n - Math.ceil(y / x)
-  console.log(x)
+  var n = +prompt()
+  var x = +prompt()
+  var y = +prompt()
+  console.log(n - Math.ceil(y / x))
 </script>
-
 
 <script id="ch0105/01" type="ha">
   var n = +prompt()
@@ -483,9 +488,37 @@ debugger
   console.log(a)
 </script>
 <script id="ch0105/18" type="ah">
+  var n = +prompt()
+  var x = +prompt()
+  var y = +prompt()
+  var r = y / x
+  for (var i = 1; i < n; i++){
+    var a = +prompt()
+    var b = +prompt()
+    var r1 = b / a
+    if (r1 > r && r1 - r > 0.05){
+      console.log("better")
+    } else if (r1 < r && r1 - r < 0.05){
+      console.log("worse")
+    } else {
+      console.log("same")
+    }
+  }
+
 </script>
 <script id="ch0105/19" type="ah">
-
+  var n = +prompt()
+  var suma = 0
+  var sumz = 0
+  for (i = 0; i < n; i++){
+    var x = +prompt()
+    var y = +prompt()
+    var a = +prompt()
+    var z = Math.sqrt(x * x + y * y) * 2
+    sumz += z
+    suma += a * 1.5
+  }
+  console.log(Math.ceil(suma + sumz / 50))
 </script>
 <script id="ch0105/20" type="ha">
   var h = +prompt()
@@ -502,21 +535,20 @@ debugger
   console.log((sumDown + sumUp - h).toFixed(4), h.toFixed(7))
 </script>
 <script id="ch0105/21" type="ha">
-  debugger
   var N = +prompt()
   var i = 0
-    for (var i = 0; ; i++){
-      if (N == 1) {
-        console.log("END")
-        break
-      } else if (N % 2 == 0) {
-        console.log(N + "/" + 2 + "=" + N / 2)
-        N = N / 2
-      } else if (N % 2 != 0) {
-        console.log(N + "*" + 3 + "+" + 1 + "=" + (N * 3 + 1))
-        N = N * 3 + 1
-      }
+  for (var i = 0; ; i++) {
+    if (N == 1) {
+      console.log("END")
+      break
+    } else if (N % 2 == 0) {
+      console.log(N + "/" + 2 + "=" + N / 2)
+      N = N / 2
+    } else if (N % 2 != 0) {
+      console.log(N + "*" + 3 + "+" + 1 + "=" + (N * 3 + 1))
+      N = N * 3 + 1
     }
+  }
   // do {
   //   i = i + 1
   //   if (N == 1) {
@@ -533,27 +565,25 @@ debugger
   //   } while (i < 10)
   //   console.log("END")
 </script>
-<script id="ch0105/22" type="ah">
+<script id="ch0105/22" xtype="ah">
   var rest = 0
   var saving = 0
-  var flag = false
-  for (i = 1; i <= 12; i++){
+  var savingSum = 0
+  for (i = 1; i <= 12; i++) {
     rest += 300
     var budget = +prompt()
-    if (budget > rest){
+    rest = rest - budget
+    if (rest >= 100) {
+      saving = Math.floor(rest / 100) * 100
+      savingSum += saving
+      rest = rest - saving
+    }
+    if (rest < budget) {
       console.log(-i)
-      flag = true
       break
     }
-    rest = rest - budget
-    if (rest >= 100){
-      var t = Math.floor(rest / 100) * 100
-      saving = saving + t
-      rest = rest - t
-    }
   }
-  if (!flag)
-    console.log(Math.trunc(rest + saving) * 1.2)
+  console.log(rest + savingSum * 1.2)
 </script>
 <script id="ch0105/23" type="ha">
   var m = +prompt()
