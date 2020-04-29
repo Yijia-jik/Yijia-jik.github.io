@@ -565,7 +565,7 @@ debugger
   //   } while (i < 10)
   //   console.log("END")
 </script>
-<script id="ch0105/22" xtype="ah">
+<script id="ch0105/22" type="ah">
   var rest = 0
   var saving = 0
   var savingSum = 0
@@ -879,3 +879,253 @@ debugger
   }
   console.log(sum)
 </script>
+
+<!-- 7: 输入一个数，输出其是否是7的倍数或各个位上是否有7（25：NO，27：YES，21：YES)
+sort: 输入3个数，按从小到大顺序输出
+narcissistic: 输入一个数判断其是否为水仙花数，输出"YES"/"NO"
+narcissistics: 输出1000以内的水仙花数
+palindrom: 输入一个数，判断其是否为一个一个回文数"YES"/"NO"
+weekday: 输入年份与月份，输出这此年此月的第一天为星期几（0对应周日，1对应周一）
+complete-number: 输入一个数判断其是否为完数，输出"YES"/"NO"
+complete-numbers: 输出1000以内的完数
+prime: 输入一个数判断其是否为素数数，输出"YES"/"NO"
+primes: 输出100以内的素数
+itob: 输入一个数，输出其字符串形式
+lcf&lcm: 输入两个数，分别输出它们的最大公约数和最小公倍数
+sqrt: 输入一个数，输出其平方根，精确到小数点后3位 -->
+
+<script id="narcissistic" type="wa">
+  debugger
+  var n = +prompt()
+  var t = n
+  var sum = 0
+  var digit
+  while (t > 0) {
+    var digit = t % 10
+    t = (t - digit) / 10
+    sum += Math.pow(digit, 3)
+  }
+  if (sum == n) {
+    console.log("true")
+  } else {
+    console.log("false")
+  }
+
+</script>
+<script id="narcissistics" type="wa">
+  debugger
+  for (var i = 1; i < 1000; i++){
+    var n = i
+    var t = i
+
+    var digitWidth = 0
+    do {
+      var m = t % 10
+      t = (t - m) / 10
+      digitWidth++
+    } while (t > 0)
+
+    var sum = 0
+    do {
+      // var power = 1 让 for 循环完毕之后重新取值，如果写在 do 循环外面下一次取值是上次 for 循环的值
+      var digit = n % 10;
+      for (a = 0; a < digitWidth; a++) {
+        power *= digit
+      }
+      sum += power
+      n = (n - digit) / 10
+    } while (n > 0)
+
+    if (sum == i) {
+      console.log(i)
+    }
+  }
+
+  // var digitWidth = function(t){
+  //   var digitWidth = 0
+  //   do {
+  //     var m = t % 10;
+  //     t = (t - m) / 10
+  //     digitWidth++
+  //   } while (t > 0 && t < 1000)
+  //   return digitWidth
+  // }
+
+</script>
+<script id="complete-number" type="wa">
+  debugger
+  var n = +prompt()
+  var s = Math.sqrt(n)
+  var sum = 1
+  for (a = 2; a < s; a++){
+    if (n % a == 0){
+      sum += a + n / a
+    }
+  }
+    if (Math.floor(s) * Math.floor(s) == n){
+      sum += s
+    }
+    if (sum == n){
+      console.log("YES")
+    } else {
+      console.log("NO")
+    }
+</script>
+<script id="complete-numbers" type="wa">
+  for (i = 2; i < 1000; i++){
+    var s = Math.sqrt(i)
+    var sum = 1
+    for (a = 2; a < s; a++) {
+      if (i % a == 0) {
+        sum += a + i / a
+      }
+      if (Math.floor(s) * Math.floor(s) == i) {
+        sum += s
+      }
+    }
+    if (sum == i) {
+    console.log(i)
+    }
+  }
+</script>
+<script id="sqrt" type="wa">
+  var n = +prompt()
+  for (i = 0; i <= n / 2; i+= 0.00000001){
+    if ( i * i < n){
+      for (i = 0; i > n / 2; i += 0.00000001)[]
+    }
+  }
+
+</script>
+<script id="sqrt" type="wa"></script>
+<script id="itob" type="wa"></script>
+
+2020/03/06
+<script id="minimum" type="wa">
+  function min(a, b){
+    if (a > b){
+      return a
+    } else if (b > a){
+      return b
+    } else {
+      return null
+    }
+  }
+</script>
+<script id="recursion" type="wa">
+  function isEven(n){
+    if (n == 1){
+      return "odd"
+    } else if (n == 0){
+      return "even"
+    } else if (n < 0){
+      return null
+    } else {
+      return isEven(n - 2)
+    }
+  }
+</script>
+<script id="BeanCounting" type="wa">
+  function countBs(s){
+    var n = 0
+    if (s.length > 1){
+      if (s[s.length - 1] == "B"){
+        n++
+      }
+      s.length--
+      return countBs(s)
+    } else if (s.length < 1){
+      return n
+    }
+  }
+</script>
+<script id="includes" type="wa">
+  function includes (ary, value){
+    for (var i = 0; i < ary.length - 1; i++){
+      if (ary[i] === value){
+        return true
+      } else {
+        return false
+      }x
+    }
+  }
+</script>
+
+<script id="slice" type="wa">
+  function slice(ary, start, end){
+    for (var i = 0; i < ary.length; i++){
+      if (i >= start - 1 && end === undefined) {
+        console.log(ary[i])
+      }
+      if(i >= start - 1 && i < end - 1){
+        console.log(ary[i])
+
+      }
+    }
+  }
+
+</script>
+<script id="fill" type="wa">
+  function fill(ary, val, start, end){
+    if (start === undefined){
+      start = 0
+    }
+    if (end === undefined){
+      end = ary.length
+    }
+
+    for (var i = start; i < end; i++){
+      ary[i] = val
+    }
+    return ary
+  }
+</script>
+<script id="join" type="wa">
+  function join(ary, joiner){
+    ary.push(joiner)
+    return ary
+  }
+
+</script>
+<script id="argstoarray" type="wa">
+  var result = []
+  function argstoarray(args){
+    for (var i = 0; i < args.length; i++){
+        result.push(args.i)
+    }
+    return result
+  }
+</script>
+<script id="concat" type="wa">
+  function concat(initArray, val){
+    if (typeof)
+  }
+</script>
+
+2020/04/21
+<script id="arryToList" xtype="wa">
+  function arryTolist(array){
+    for (var i = 0; i < array.length; i++){
+      array[i] = {val: array[i]}
+    }
+    for (var i = 0; i < array.length; i++) {
+      array[i].next = array[i + 1]
+    }
+
+
+  }
+</script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
+<script id="" type="wa"></script>
