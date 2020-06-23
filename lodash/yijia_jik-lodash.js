@@ -15,9 +15,18 @@ var yijia_jik = {
     }
   },
 
-  chunk: function () {
+  chunk: function (ary, pivot) {
+    return ary.reduce((result, curr, idx) => {
+      if (idx <= pivot) {
+        result[0].push(curr)
+      } else {
+        result[1].push(curr)
+      }
 
+      return curr
+    }, [[], []])
   },
+
   compact: function () {
 
   },
