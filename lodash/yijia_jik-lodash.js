@@ -15,296 +15,338 @@ var yijia_jik = {
     }
   },
 
-  chunk: function (ary, pivot) {
-    return ary.reduce((result, curr, idx) => {
-      if (idx <= pivot) {
-        result[0].push(curr)
+  chunk: function (ary, size = 1) {
+    var result = []
+    var numOfAry = Math.floor(ary.length / size)
+    for (var i = 0, j = 0; i < ary.length, j < numOfAry; i = i + size, j++) {
+      result[j] = ary.slice(i, i + size)
+    }
+    if (ary.length % size) {
+      result.push(ary.slice(i))
+    }
+    return result
+  },
+
+  compact: function (ary) {
+    return ary.filter(it => it)
+  },
+
+  concat: function (...args) {
+    var result = []
+    for (var val of args) {
+      if (!Array.isArray(val)) {
+        result.push(val)
       } else {
-        result[1].push(curr)
+        result.push(...val)
       }
-
-      return curr
-    }, [[], []])
+    }
   },
-
-  compact: function () {
 
-  },
-  concat: function () {
+  difference: function (ary, ...args) {
+    var rest = []
+    for (var ary of args) {
+      rest.push(ary)
+    }
 
+    return ary.filter(id => rest.every(it => !it.includes(id)))
   },
-  difference: function () {
 
-  },
-  drop: function () {
+  drop: function (ary, n = 1) {
+    var result = []
+    if (n >= ary.length) {
+      return []
+    }
 
+    for (var i = n; i < nums.length; i++) {
+      result.push(ary[i])
+    }
+    return result
   },
-  fill: function () {
 
+  fill: function (ary, val, start = 0, end = array.length) {
+    return ary.map((it, idx) => {
+      if (idx < end && idx >= start) {
+        it = val
+      }
+    })
   },
-  find: function () {
+  find: function (????) {
 
   },
-  flatten: function () {
-
+  flatten: function (ary) {
+    return [].concat(...ary)
   },
-  head: function () {
 
-  },
+head: function (ary) {
+  return ary[0]
+},
 
-  indexOf: function () {
+indexOf: function (ary, val, fromIdx = 0) {
+  for (var i = fromIdx; i < ary.length; i++) {
+    if (ary[i] == val) {
+      return i
+    }
+  }
+  return undefined
+},
 
-  },
-  initial: function () {
+initial: function (ary) {
+  ary.pop()
+  return ary
+},
 
-  },
-  intersection: function () {
+intersection: function (...ary) {
+  var allArrays = [].concat(...ary)
+  var seperateArrays = [...ary]
+  return allArrays.filter(it => {
+    seperateArrays.every(id => id.includes(it))
+  })
+},
 
-  },
-  join: function () {
+join: function (array, [separator = ',']) {
 
-  },
-  last: function () {
+},
+last: function () {
 
-  },
-  lastIndexOf: function () {
+},
+lastIndexOf: function () {
 
-  },
-  nth: function () {
+},
+nth: function () {
 
-  },
-  pull: function () {
+},
+pull: function () {
 
-  },
-  pullAll: function () {
+},
+pullAll: function () {
 
-  },
-  pullAt: function () {
+},
+pullAt: function () {
 
-  },
-  remove: function () {
+},
+remove: function () {
 
-  },
-  reverse: function () {
+},
+reverse: function () {
 
-  },
-  slice: function () {
+},
+slice: function () {
 
-  },
-  sortedIndex: function () {
+},
+sortedIndex: function () {
 
-  },
-  sortedIndexOf: function () {
+},
+sortedIndexOf: function () {
 
-  },
-  tail: function () {
+},
+tail: function () {
 
-  },
-  take: function () {
+},
+take: function () {
 
-  },
-  takeRight: function () {
+},
+takeRight: function () {
 
-  },
-  union: function () {
+},
+union: function () {
 
-  },
-  uniq: function () {
+},
+uniq: function () {
 
-  },
-  unzip: function () {
+},
+unzip: function () {
 
-  },
-  without: function () {
+},
+without: function () {
 
-  },
-  xor: function () {
+},
+xor: function () {
 
-  },
-  zip: function () {
+},
+zip: function () {
 
-  },
-  zipObject: function () {
+},
+zipObject: function () {
 
-  },
-  includes: function () {
+},
+includes: function () {
 
-  },
-  sample: function () {
+},
+sample: function () {
 
-  },
-  sampleSize: function () {
+},
+sampleSize: function () {
 
-  },
-  shuffle: function () {
+},
+shuffle: function () {
 
-  },
-  size: function () {
+},
+size: function () {
 
-  },
-  eq: function () {
+},
+eq: function () {
 
-  },
-  gt: function () {
+},
+gt: function () {
 
-  },
-  gte: function () {
+},
+gte: function () {
 
-  },
-  lt: function () {
+},
+lt: function () {
 
-  },
-  lte: function () {
+},
+lte: function () {
 
-  },
-  add: function () {
+},
+add: function () {
 
-  },
-  ceil: function () {
+},
+ceil: function () {
 
-  },
-  divide: function () {
+},
+divide: function () {
 
-  },
-  floor: function () {
+},
+floor: function () {
 
-  },
-  max: function () {
+},
+max: function () {
 
-  },
-  mean: function () {
+},
+mean: function () {
 
-  },
-  min: function () {
+},
+min: function () {
 
-  },
-  multiply: function () {
+},
+multiply: function () {
 
-  },
-  round: function () {
+},
+round: function () {
 
-  },
-  substract: function () {
+},
+substract: function () {
 
-  },
-  sum: function () {
+},
+sum: function () {
 
-  },
-  at: function () {
+},
+at: function () {
 
-  },
-  defaults: function () {
+},
+defaults: function () {
 
-  },
-  get: function () {
+},
+get: function () {
 
-  },
-  set: function () {
+},
+set: function () {
 
-  },
-  has: function () {
+},
+has: function () {
 
-  },
-  hasIn: function () {
+},
+hasIn: function () {
 
-  },
-  invert: function () {
+},
+invert: function () {
 
-  },
-  keys: function () {
+},
+keys: function () {
 
-  },
-  assign: function () {
+},
+assign: function () {
 
-  },
-  omit: function () {
+},
+omit: function () {
 
-  },
-  pick: function () {
+},
+pick: function () {
 
-  },
-  values: function () {
+},
+values: function () {
 
-  },
-  camelCase: function () {
+},
+camelCase: function () {
 
-  },
-  capitalize: function () {
+},
+capitalize: function () {
 
-  },
-  deburr: function () {
+},
+deburr: function () {
 
-  },
-  endsWith: function () {
+},
+endsWith: function () {
 
-  },
-  escape: function () {
+},
+escape: function () {
 
-  },
-  kebabCase: function () {
+},
+kebabCase: function () {
 
-  },
-  lowerCase: function () {
+},
+lowerCase: function () {
 
-  },
-  lowerFirst: function () {
+},
+lowerFirst: function () {
 
-  },
-  pad: function () {
+},
+pad: function () {
 
-  },
-  padEnd: function () {
+},
+padEnd: function () {
 
-  },
-  padStart: function () {
+},
+padStart: function () {
 
-  },
-  parseInt: function () {
+},
+parseInt: function () {
 
-  },
-  repeat: function () {
+},
+repeat: function () {
 
-  },
-  replace: function () {
+},
+replace: function () {
 
-  },
-  snakeCase: function () {
+},
+snakeCase: function () {
 
-  },
-  split: function () {
+},
+split: function () {
 
-  },
-  startCase: function () {
+},
+startCase: function () {
 
-  },
-  startsWith: function () {
+},
+startsWith: function () {
 
-  },
-  trim: function () {
+},
+trim: function () {
 
-  },
-  trimEnd: function () {
+},
+trimEnd: function () {
 
-  },
-  trimStart: function () {
+},
+trimStart: function () {
 
-  },
-  truncate: function () {
+},
+truncate: function () {
 
-  },
-  unescape: function () {
+},
+unescape: function () {
 
-  },
-  upperCase: function () {
+},
+upperCase: function () {
 
-  },
-  upperFirst: function () {
+},
+upperFirst: function () {
 
-  },
-  words: function () {
+},
+words: function () {
 
-  },
-  range: function () {
+},
+range: function () {
 
-  },
+},
 }
