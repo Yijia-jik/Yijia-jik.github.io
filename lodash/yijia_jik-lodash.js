@@ -104,7 +104,7 @@ var yijia_jik = {
       if (!result.includes(curr)) {
         result.push(curr)
       }
-      return curr
+      return result
     }, [])
   },
 
@@ -153,6 +153,7 @@ var yijia_jik = {
   remove: function (ary, predicate) {
 
   },
+
   reverse: function (ary) {
     var result = []
     for (var i = ary.length; i > 0; i--) {
@@ -214,10 +215,10 @@ var yijia_jik = {
   union: function (...ary) {
     var allArrays = [].concat(...ary)
     return allArrays.reduce((result, it) => {
-      if (!(result.includes(it))) {
+      if (!result.includes(it)) {
         result.push(it)
       }
-      return it
+      return result
     }, [])
   },
   uniq: function () {
