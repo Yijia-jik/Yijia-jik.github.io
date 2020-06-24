@@ -97,63 +97,133 @@ initial: function (ary) {
 
 intersection: function (...ary) {
   var allArrays = [].concat(...ary)
-  var seperateArrays = [...ary]
-  return allArrays.filter(it => {
-    seperateArrays.every(id => id.includes(it))
+  var separateArrays = [...ary]
+  var intersections = allArrays.filter(it => {
+    return separateArrays.every(id => id.includes(it))
+  }).reduce((result, curr) => {
+    if (!result.includes(curr)) {
+      result.push(curr)
+    }
+    return curr
+  }, [])
+},
+
+join: function (ary, separator = ',') {
+  var result = ""
+  return ary.reduce((prev, curr) => {
+    return prev + separator + curr
   })
 },
 
-join: function (array, [separator = ',']) {
+last: function (ary) {
+  return ary[ary.length - 1]
+},
+
+lastIndexOf: function (ary, val, fromIndex = ary.length - 1) {
+  for (var i = ary.length - 1; i > 0; i--) {
+    if (ary[i] == val) {
+      return i
+    }
+  }
+},
+
+nth: function (ary, nth = 0) {
+  if (n >= 0) {
+    return ary[n]
+  } else {
+    return ary[ary.length - 1 - n]
+  }
+},
+
+pull: function (ary, ...vals) {
+  return ary.filter(it => !vals.includes(it))
+},
+
+pullAll: function (ary, aryOfVals) {
+  return ary.filter(it => !aryOfVals.includes(it))
+},
+
+pullAt: function (ary, aryOfIdx) {
+  var tmp = ary
+  var result = tmp.filter((_, idx) => aryOfIdx.includes(idx))
+  var ary = ary.filter((_, idx) => !aryOfIdx.includes(idx))
+  return result
+},
+
+remove: function (ary, predicate) {
 
 },
-last: function () {
-
+reverse: function (ary) {
+  var result = []
+  for (var i = ary.length; i > 0; i--) {
+    result.push(ary[i])
+  }
+  return result
 },
-lastIndexOf: function () {
 
-},
-nth: function () {
-
-},
-pull: function () {
-
-},
-pullAll: function () {
-
-},
-pullAt: function () {
-
-},
-remove: function () {
-
-},
-reverse: function () {
-
-},
 slice: function () {
 
 },
-sortedIndex: function () {
-
+sortedIndex: function (ary, val) {
+  //chaode
+  var low = 0
+  var high = ary.length - 1
+  while (ary[high] > ary[low]) {
+    var mid = Math.trunc(low + (right - left) / 2)
+    if (ary[mid] >= val) {
+      high = mid
+    } else {
+      low = mid + 1
+    }
+  }
+  return low != 0 ? low : -1
 },
-sortedIndexOf: function () {
 
+sortedIndexOf: function (ary, val) {
+  //chaode
+  var low = 0
+  var high = ary.length - 1
+  while (ary[high] > ary[low]) {
+    var mid = Math.trunc(low + (right - left) / 2)
+    if (ary[mid] >= val) {
+      high = mid
+    } else {
+      low = mid + 1
+    }
+  }
+  return low != 0 ? low : -1
 },
-tail: function () {
 
+tail: function (ary) {
+  ary.unshift()
+  return ary
 },
-take: function () {
 
+take: function (ary, n) {
+  return ary.slice(0, n)
 },
-takeRight: function () {
 
+takeRight: function (ary, n = 1) {
+  if (n == 0) {
+    return []
+  } else if (n > ary.length) {
+    return ary
+  }
+  return ary.slice(ary.length - n)
 },
-union: function () {
-
+union: function (...ary) {
+  var allArrays = [].concat(...ary)
+  return allArrays.reduce((result, it) => {
+    if (!(result.includes(it))) {
+      result.push(it)
+    }
+    return it
+  }, [])
 },
 uniq: function () {
 
 },
+
 unzip: function () {
 
 },
