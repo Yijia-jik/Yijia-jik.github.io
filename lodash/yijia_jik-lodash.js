@@ -70,353 +70,353 @@ var yijia_jik = {
       }
     })
   },
-  find: function (????) {
+  find: function () {
 
   },
   flatten: function (ary) {
     return [].concat(...ary)
   },
 
-head: function (ary) {
-  return ary[0]
-},
+  head: function (ary) {
+    return ary[0]
+  },
 
-indexOf: function (ary, val, fromIdx = 0) {
-  for (var i = fromIdx; i < ary.length; i++) {
-    if (ary[i] == val) {
-      return i
+  indexOf: function (ary, val, fromIdx = 0) {
+    for (var i = fromIdx; i < ary.length; i++) {
+      if (ary[i] == val) {
+        return i
+      }
     }
-  }
-  return undefined
-},
+    return undefined
+  },
 
-initial: function (ary) {
-  ary.pop()
-  return ary
-},
-
-intersection: function (...ary) {
-  var allArrays = [].concat(...ary)
-  var separateArrays = [...ary]
-  var intersections = allArrays.filter(it => {
-    return separateArrays.every(id => id.includes(it))
-  }).reduce((result, curr) => {
-    if (!result.includes(curr)) {
-      result.push(curr)
-    }
-    return curr
-  }, [])
-},
-
-join: function (ary, separator = ',') {
-  var result = ""
-  return ary.reduce((prev, curr) => {
-    return prev + separator + curr
-  })
-},
-
-last: function (ary) {
-  return ary[ary.length - 1]
-},
-
-lastIndexOf: function (ary, val, fromIndex = ary.length - 1) {
-  for (var i = ary.length - 1; i > 0; i--) {
-    if (ary[i] == val) {
-      return i
-    }
-  }
-},
-
-nth: function (ary, nth = 0) {
-  if (n >= 0) {
-    return ary[n]
-  } else {
-    return ary[ary.length - 1 - n]
-  }
-},
-
-pull: function (ary, ...vals) {
-  return ary.filter(it => !vals.includes(it))
-},
-
-pullAll: function (ary, aryOfVals) {
-  return ary.filter(it => !aryOfVals.includes(it))
-},
-
-pullAt: function (ary, aryOfIdx) {
-  var tmp = ary
-  var result = tmp.filter((_, idx) => aryOfIdx.includes(idx))
-  var ary = ary.filter((_, idx) => !aryOfIdx.includes(idx))
-  return result
-},
-
-remove: function (ary, predicate) {
-
-},
-reverse: function (ary) {
-  var result = []
-  for (var i = ary.length; i > 0; i--) {
-    result.push(ary[i])
-  }
-  return result
-},
-
-slice: function () {
-
-},
-sortedIndex: function (ary, val) {
-  //chaode
-  var low = 0
-  var high = ary.length - 1
-  while (ary[high] > ary[low]) {
-    var mid = Math.trunc(low + (right - left) / 2)
-    if (ary[mid] >= val) {
-      high = mid
-    } else {
-      low = mid + 1
-    }
-  }
-  return low != 0 ? low : -1
-},
-
-sortedIndexOf: function (ary, val) {
-  //chaode
-  var low = 0
-  var high = ary.length - 1
-  while (ary[high] > ary[low]) {
-    var mid = Math.trunc(low + (right - left) / 2)
-    if (ary[mid] >= val) {
-      high = mid
-    } else {
-      low = mid + 1
-    }
-  }
-  return low != 0 ? low : -1
-},
-
-tail: function (ary) {
-  ary.unshift()
-  return ary
-},
-
-take: function (ary, n) {
-  return ary.slice(0, n)
-},
-
-takeRight: function (ary, n = 1) {
-  if (n == 0) {
-    return []
-  } else if (n > ary.length) {
+  initial: function (ary) {
+    ary.pop()
     return ary
-  }
-  return ary.slice(ary.length - n)
-},
-union: function (...ary) {
-  var allArrays = [].concat(...ary)
-  return allArrays.reduce((result, it) => {
-    if (!(result.includes(it))) {
-      result.push(it)
+  },
+
+  intersection: function (...ary) {
+    var allArrays = [].concat(...ary)
+    var separateArrays = [...ary]
+    var intersections = allArrays.filter(it => {
+      return separateArrays.every(id => id.includes(it))
+    }).reduce((result, curr) => {
+      if (!result.includes(curr)) {
+        result.push(curr)
+      }
+      return curr
+    }, [])
+  },
+
+  join: function (ary, separator = ',') {
+    var result = ""
+    return ary.reduce((prev, curr) => {
+      return prev + separator + curr
+    })
+  },
+
+  last: function (ary) {
+    return ary[ary.length - 1]
+  },
+
+  lastIndexOf: function (ary, val, fromIndex = ary.length - 1) {
+    for (var i = ary.length - 1; i > 0; i--) {
+      if (ary[i] == val) {
+        return i
+      }
     }
-    return it
-  }, [])
-},
-uniq: function () {
+  },
+
+  nth: function (ary, nth = 0) {
+    if (n >= 0) {
+      return ary[n]
+    } else {
+      return ary[ary.length - 1 - n]
+    }
+  },
+
+  pull: function (ary, ...vals) {
+    return ary.filter(it => !vals.includes(it))
+  },
+
+  pullAll: function (ary, aryOfVals) {
+    return ary.filter(it => !aryOfVals.includes(it))
+  },
+
+  pullAt: function (ary, aryOfIdx) {
+    var tmp = ary
+    var result = tmp.filter((_, idx) => aryOfIdx.includes(idx))
+    var ary = ary.filter((_, idx) => !aryOfIdx.includes(idx))
+    return result
+  },
+
+  remove: function (ary, predicate) {
+
+  },
+  reverse: function (ary) {
+    var result = []
+    for (var i = ary.length; i > 0; i--) {
+      result.push(ary[i])
+    }
+    return result
+  },
+
+  slice: function () {
+
+  },
+  sortedIndex: function (ary, val) {
+    //chaode
+    var low = 0
+    var high = ary.length - 1
+    while (ary[high] > ary[low]) {
+      var mid = Math.trunc(low + (right - left) / 2)
+      if (ary[mid] >= val) {
+        high = mid
+      } else {
+        low = mid + 1
+      }
+    }
+    return low != 0 ? low : -1
+  },
+
+  sortedIndexOf: function (ary, val) {
+    //chaode
+    var low = 0
+    var high = ary.length - 1
+    while (ary[high] > ary[low]) {
+      var mid = Math.trunc(low + (right - left) / 2)
+      if (ary[mid] >= val) {
+        high = mid
+      } else {
+        low = mid + 1
+      }
+    }
+    return low != 0 ? low : -1
+  },
+
+  tail: function (ary) {
+    ary.unshift()
+    return ary
+  },
+
+  take: function (ary, n) {
+    return ary.slice(0, n)
+  },
+
+  takeRight: function (ary, n = 1) {
+    if (n == 0) {
+      return []
+    } else if (n > ary.length) {
+      return ary
+    }
+    return ary.slice(ary.length - n)
+  },
+  union: function (...ary) {
+    var allArrays = [].concat(...ary)
+    return allArrays.reduce((result, it) => {
+      if (!(result.includes(it))) {
+        result.push(it)
+      }
+      return it
+    }, [])
+  },
+  uniq: function () {
+
+  },
+
+  unzip: function () {
+
+  },
+  without: function () {
 
-},
+  },
+  xor: function () {
 
-unzip: function () {
+  },
+  zip: function () {
 
-},
-without: function () {
+  },
+  zipObject: function () {
 
-},
-xor: function () {
+  },
+  includes: function () {
 
-},
-zip: function () {
+  },
+  sample: function () {
 
-},
-zipObject: function () {
+  },
+  sampleSize: function () {
 
-},
-includes: function () {
+  },
+  shuffle: function () {
 
-},
-sample: function () {
+  },
+  size: function () {
 
-},
-sampleSize: function () {
+  },
+  eq: function () {
 
-},
-shuffle: function () {
+  },
+  gt: function () {
 
-},
-size: function () {
+  },
+  gte: function () {
 
-},
-eq: function () {
+  },
+  lt: function () {
 
-},
-gt: function () {
+  },
+  lte: function () {
 
-},
-gte: function () {
+  },
+  add: function () {
 
-},
-lt: function () {
+  },
+  ceil: function () {
 
-},
-lte: function () {
+  },
+  divide: function () {
 
-},
-add: function () {
+  },
+  floor: function () {
 
-},
-ceil: function () {
+  },
+  max: function () {
 
-},
-divide: function () {
+  },
+  mean: function () {
 
-},
-floor: function () {
+  },
+  min: function () {
 
-},
-max: function () {
+  },
+  multiply: function () {
 
-},
-mean: function () {
+  },
+  round: function () {
 
-},
-min: function () {
+  },
+  substract: function () {
 
-},
-multiply: function () {
+  },
+  sum: function () {
 
-},
-round: function () {
+  },
+  at: function () {
 
-},
-substract: function () {
+  },
+  defaults: function () {
 
-},
-sum: function () {
+  },
+  get: function () {
 
-},
-at: function () {
+  },
+  set: function () {
 
-},
-defaults: function () {
+  },
+  has: function () {
 
-},
-get: function () {
+  },
+  hasIn: function () {
 
-},
-set: function () {
+  },
+  invert: function () {
 
-},
-has: function () {
+  },
+  keys: function () {
 
-},
-hasIn: function () {
+  },
+  assign: function () {
 
-},
-invert: function () {
+  },
+  omit: function () {
 
-},
-keys: function () {
+  },
+  pick: function () {
 
-},
-assign: function () {
+  },
+  values: function () {
 
-},
-omit: function () {
+  },
+  camelCase: function () {
 
-},
-pick: function () {
+  },
+  capitalize: function () {
 
-},
-values: function () {
+  },
+  deburr: function () {
 
-},
-camelCase: function () {
+  },
+  endsWith: function () {
 
-},
-capitalize: function () {
+  },
+  escape: function () {
 
-},
-deburr: function () {
+  },
+  kebabCase: function () {
 
-},
-endsWith: function () {
+  },
+  lowerCase: function () {
 
-},
-escape: function () {
+  },
+  lowerFirst: function () {
 
-},
-kebabCase: function () {
+  },
+  pad: function () {
 
-},
-lowerCase: function () {
+  },
+  padEnd: function () {
 
-},
-lowerFirst: function () {
+  },
+  padStart: function () {
 
-},
-pad: function () {
+  },
+  parseInt: function () {
 
-},
-padEnd: function () {
+  },
+  repeat: function () {
 
-},
-padStart: function () {
+  },
+  replace: function () {
 
-},
-parseInt: function () {
+  },
+  snakeCase: function () {
 
-},
-repeat: function () {
+  },
+  split: function () {
 
-},
-replace: function () {
+  },
+  startCase: function () {
 
-},
-snakeCase: function () {
+  },
+  startsWith: function () {
 
-},
-split: function () {
+  },
+  trim: function () {
 
-},
-startCase: function () {
+  },
+  trimEnd: function () {
 
-},
-startsWith: function () {
+  },
+  trimStart: function () {
 
-},
-trim: function () {
+  },
+  truncate: function () {
 
-},
-trimEnd: function () {
+  },
+  unescape: function () {
 
-},
-trimStart: function () {
+  },
+  upperCase: function () {
 
-},
-truncate: function () {
+  },
+  upperFirst: function () {
 
-},
-unescape: function () {
+  },
+  words: function () {
 
-},
-upperCase: function () {
+  },
+  range: function () {
 
-},
-upperFirst: function () {
-
-},
-words: function () {
-
-},
-range: function () {
-
-},
+  },
 }
