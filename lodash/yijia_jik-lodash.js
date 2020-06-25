@@ -99,8 +99,11 @@ var yijia_jik = {
   intersection: function (...ary) {
     var allArrays = [].concat(...ary)
     var separateArrays = [...ary]
-    var intersections = allArrays.filter(it => {
-      return separateArrays.every(id => id.includes(it))
+
+    return allArrays.filter(it => {
+      return separateArrays.every(singleAry => {
+        return singleAry.includes(it)
+      })
     }).reduce((result, curr) => {
       if (!result.includes(curr)) {
         result.push(curr)
