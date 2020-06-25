@@ -42,13 +42,14 @@ var yijia_jik = {
     }
   },
 
-  difference: function (ary, ...args) {
-    var rest = []
-    for (var ary of args) {
-      rest.push(ary)
-    }
-
-    return ary.filter(id => rest.every(it => !it.includes(id)))
+  difference: function (ary, ...arys) {
+    var rest = [...arys]
+    //why?
+    return ary.filter(id => {
+      return rest.every(it => {
+        return !it.includes(id)
+      })
+    })
   },
 
   drop: function (ary, n = 1) {
@@ -57,13 +58,13 @@ var yijia_jik = {
       return []
     }
 
-    for (var i = n; i < nums.length; i++) {
+    for (var i = n; i < ary.length; i++) {
       result.push(ary[i])
     }
     return result
   },
 
-  fill: function (ary, val, start = 0, end = array.length) {
+  fill: function (ary, val, start = 0, end = ary.length) {
     return ary.map((it, idx) => {
       if (idx < end && idx >= start) {
         it = val
@@ -71,7 +72,7 @@ var yijia_jik = {
     })
   },
   find: function () {
-
+    //难
   },
   flatten: function (ary) {
     return [].concat(...ary)
@@ -94,7 +95,7 @@ var yijia_jik = {
     ary.pop()
     return ary
   },
-
+  //why
   intersection: function (...ary) {
     var allArrays = [].concat(...ary)
     var separateArrays = [...ary]
@@ -107,9 +108,8 @@ var yijia_jik = {
       return result
     }, [])
   },
-
+  //why
   join: function (ary, separator = ',') {
-    var result = ""
     return ary.reduce((prev, curr) => {
       return prev + separator + curr
     })
